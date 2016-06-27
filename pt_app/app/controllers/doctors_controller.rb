@@ -1,6 +1,5 @@
 class DoctorsController < ApplicationController
 
-	#doctor index page
 	def index
 		@doctors = Doctor.all
 		render :index
