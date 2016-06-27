@@ -36,6 +36,7 @@ class ExercisesController < ApplicationController
 	end
 
 
+	#edit with AJAX so can be udpated w/o page load
 	def update
 		@exercise_update = Exercise.find(params[:id])
 		exercise_params = params.require(:exercise).permit(:name, :description)
@@ -47,7 +48,7 @@ class ExercisesController < ApplicationController
 			redirect_to "/exercises/#{exercise.id}"
 
 		else redirect_to :show #sb check
-			
+
 		end
 	end
 
