@@ -1,9 +1,9 @@
-<%= @patient.image_url %>
-<%= @patient.first_name + " " + @patient.last_name %>
-<%= @patient.email %>
-<%= @patient.phone_number %>
-<%= @patient.location %>
-<%= @patient_diagnosis %>
+<img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" >
+<li><%= @patient.first_name + " " + @patient.last_name %></li>
+<li>Email: <%= @patient.email %></li>
+<li>Phone Number: <%= @patient.phone_number %></li>
+<li>Address: <%= @patient.location %></li>
+<li>Diagnosis <%= @patient_diagnosis %></li>
 
 <div>
 	List of Exercises:
@@ -12,3 +12,4 @@
 <div>
 	Your Current Physician:
 </div>
+

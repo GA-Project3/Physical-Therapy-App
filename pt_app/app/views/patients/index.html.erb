@@ -1,5 +1,5 @@
 <h1>Patient Directory</h1>
 
 <% @patients.each do |patient| %>
-	<%= patient.first_name + " " + @patient.last_name %>
+	<li><%= patient.first_name + " " + patient.last_name %></li>
 <%end%>

@@ -10,15 +10,16 @@ Patient Name
 
 Email  
 <div>
-  <%= f.text_area :email, value: @patient.email %>
+  <%= f.text_field :email, value: @patient.email %>
 </div>
 
 Picture
-<%= f.text_area :image_url %>
+<%= f.text_field :image_url %>
+<br>
 
 Phone Number
 <div>
-  <%= f.text_area :phone_number, value: @patient.phone_number %>
+  <%= f.text_field :phone_number, value: @patient.phone_number %>
 </div>
 
 Location

@@ -15,12 +15,12 @@ class PatientsController < ApplicationController
 
 	#create a new patient
 	def create
-		patient_params = params.require(:period).permit(:first_name, :last_name, :email, :password, :description)
+		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
 		@patient = Patient.new(patient_params)
 		if @patient.save
-			login(@patient)
 			redirect_to "/patients/#{@patient.id}"
-		else
+		else 
+			redirect_to '/patients/new'
 		end
 	end
 
@@ -38,6 +38,14 @@ class PatientsController < ApplicationController
 
 	#update patient's profile
 	def update
+		@patient = Patient.find(params[:id])
+		patient_params = params.require(:patient).permit(:first_name, :last_name, :phone_number, :location, :email, :password, :description)
+
+		if @patient.update_attributes(patient_params)
+			redirect_to "/patients/#{@patient.id}"
+		else
+			render :edit
+		end
 
 	end
 
