@@ -38,10 +38,15 @@ patients = Patient.create([
     image_url:"https://ucarecdn.com/a1272143-9cdf-49c3-9b9a-9e953b74d1e7/DefaultUserImage.png"}
   ])
 
-patients[0].doctor_id = 0
-patients[1].doctor_id = 1
-patients[2].doctor_id = 0
-patients[3].doctor_id = 2
+
+patients[0].doctor = doctors[0]
+patients[1].doctor = doctors[1]
+patients[2].doctor = doctors[0]
+patients[3].doctor = doctors[2]
+
+patients.each do |p|
+  p.save
+end
 
 exercises = Exercise.create([
   {title:"Outward Rotation (neutral)",body_part:"arm",
@@ -61,8 +66,12 @@ exercises = Exercise.create([
     image_url:"http://www.edges.co.kr/wp-content/uploads/2014/08/tumblr_mf05j4WR9M1qidbb0o1_250.gif"},
   {title:"Wall slide forward raise",body_part:"shoulder",
     description:"Stand facing a wall.  Place your hands or sides of both your pinky fingers against the wall.  The European languages are members of the same family. Their separate existence is a myth. For science.",
-    image_url:""}
+    image_url:"http://www.queenstownhealth.com/wp-content/uploads/2015/04/scap32.gif"}
   ])
 
-
-
+patients[0].exercises << exercises[0]
+patients[0].exercises << exercises[1]
+patients[1].exercises << exercises[2]
+patients[2].exercises << exercises[3]
+patients[2].exercises << exercises[4]
+patients[3].exercises << exercises[5]
