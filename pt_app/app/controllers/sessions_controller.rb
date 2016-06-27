@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
 	def create
   	user_params = params.require(:user).permit(:email, :password)
   	@user = User.confirm(user_params)
-  	if @user
-    		login(@user)
-    		redirect_to "/users/#{@user.id}"
-  	else
-        flash[:error] = 'Invalid email/password combination'
+		if @user
+			login(@user)
+			redirect_to "/users/#{@user.id}"
+		else
+	    	flash[:error] = 'Invalid email/password combination'
 
-    		redirect_to "/signin"
-  	end
+			redirect_to "/signin"
+		end
 	end
 
 	def destroy
