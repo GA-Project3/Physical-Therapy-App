@@ -43,3 +43,34 @@ patients[1].doctor_id = 1
 patients[2].doctor_id = 0
 patients[3].doctor_id = 2
 
+exercises = Exercise.create([
+  {title:"Outward Rotation (neutral)",body_part:"arm",
+    description:"Bend the elbow of your affected arm.  Place a folded towel between that elbow and your side. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    image_url:"https://youtu.be/BJbkZ5RBIM8"},
+  {title:"Heal slides",body_part:"leg",
+    description:"In a sitting or lying position, bend your knee as far as possible sliding your heel up. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with.",
+    image_url:"https://youtu.be/qr4HvF9y5xU?t=11s"},
+  {title:"Short arc knee straightening",body_part:"leg",
+    description:"Lie on your back with a large towel roll under your knee.  Tighten your thigh muscles and morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.",
+    image_url:"http://www2.nau.edu/~mtl8/images/ther_ex_pics/Exercise_Pics/Pics_for_Basic_skills/LE/SAQ.jpg"},
+  {title:"Lateral Raise",body_part:"shoulder",
+    description:"Stand with your arm at side and palm facing forward.  Set your shoulder blade keeping your elbow the quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz.",
+    image_url:"http://www.epainassist.com/images/Article-Images/clasping-hands.gif"},
+  {title:"Top leg lifts",body_part:"hip",
+    description:"Lie on your unaffected side with your top leg straight.  Bend your bottom leg to help keep you balanced.  But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.",
+    image_url:"http://www.edges.co.kr/wp-content/uploads/2014/08/tumblr_mf05j4WR9M1qidbb0o1_250.gif"},
+  {title:"Wall slide forward raise",body_part:"shoulder",
+    description:"Stand facing a wall.  Place your hands or sides of both your pinky fingers against the wall.  The European languages are members of the same family. Their separate existence is a myth. For science.",
+    image_url:""}
+  ])
+
+
+
+
+
+
+
+
+
+
+
