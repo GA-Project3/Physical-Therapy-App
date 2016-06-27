@@ -1,1 +1,21 @@
-index.html.erb
+<!-- exercise index page -->
+
+<div class="container-fluid">
+
+	<div class="row">
+		<% @exercises.each do |exercise| %>
+
+			<h1><%= exercise.title %></h1>
+
+			<img src="<%= url_for (:controller => "exercises",
+			:action => "show",
+			:id => @exercise.id) %>" />
+
+			Body Part: <%= exercise.body_part %> <br>
+			Description: <%= exercise.description %>
+
+	</div>
+<% end %>
+
+</div>
+
