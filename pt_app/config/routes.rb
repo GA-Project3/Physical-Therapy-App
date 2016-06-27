@@ -9,6 +9,18 @@ Rails.application.routes.draw do
 	##signin/sessions##
 	get '/signin', to: "sessions#new"
 
+
+	#add new exercise
+	# get '/exercises', to: 'exercises#index'
+	get '/exercises/new', to: "exercises#new", as: "new_exercise"
+
+	post "/exercises/new", to: "exercises#create"
+
+	#edit exercise, return edit form for editing exercise
+	get "/exercises/:id/edit", to: "exercises#edit", as: "edit"
+
+	get "exercises/:id", to: "exercises#show"
+
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises
 
