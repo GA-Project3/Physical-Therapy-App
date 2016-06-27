@@ -66,11 +66,3 @@ exercises = Exercise.create([
 
 
 
-
-
-
-
-
-
-
-
