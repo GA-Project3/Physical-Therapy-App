@@ -1,0 +1,39 @@
+<!-- exercise index page -->
+
+<div class="container-fluid">
+
+	<div class="row">
+
+
+		<div class = "button">
+			<%= button_to "Add New Exercise", new_exercise_path %>
+		</div>
+
+
+		<% @exercises.each do |exercise| %>
+
+			<h1><%= exercise.title %></h1>
+
+			<img src= "<%= exercise.image_url %>" /><br>
+
+			Body Part: <%= exercise.body_part %> <br>
+			Description: <%= exercise.description %>
+			
+			<div class = "button">
+				<%= link_to "Edit Exercise", edit_path(exercise.id) %>
+			</div>
+
+			<div class = "button">
+				<%= link_to "Delete Exercise", edit_path(exercise.id) %>
+			</div>
+
+			<div class = "button">
+			<%= button_to "Add New Exercise", new_exercise_path %>
+			</div>
+
+
+	</div>
+<% end %>
+
+</div>
+

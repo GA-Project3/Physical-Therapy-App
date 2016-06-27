@@ -1,0 +1,20 @@
+<!-- Exercise Show Page -->
+
+<div class="container">
+	<h1><%= @exercise.title %></h1>
+
+</div>
+
+
+
+	<img <%= @exercise.image_url %>/>
+	<p><%= @exercise.description %></p><br>
+
+<div class = "button">
+	<%= link_to "Edit Exercise", edit_exercise_path %>
+</div>
+
+<div class = "button">
+	<%= link_to "Add New Exercise", new_exercise_path %>
+</div>
+

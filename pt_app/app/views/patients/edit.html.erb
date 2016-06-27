@@ -1,0 +1,33 @@
+Edit Your Profile
+
+<%= form_for @patient do |f| %>
+
+Patient Name 
+<div>
+  <%= f.text_field :first_name, value: @patient.first_name %>
+    <%= f.text_field :last_name, value: @patient.last_name %>
+</div>
+
+Email  
+<div>
+  <%= f.text_field :email, value: @patient.email %>
+</div>
+
+Picture
+<%= f.text_field :image_url %>
+<br>
+
+Phone Number
+<div>
+  <%= f.text_field :phone_number, value: @patient.phone_number %>
+</div>
+
+Location
+<div>
+	<%= f.text_area :location %>
+</div>
+
+<%= f.submit "Save Profile" %>
+<% end %>
+
+

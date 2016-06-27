@@ -1,0 +1,32 @@
+
+  <h1>Sign Up</h1>
+
+  <%= form_for @patient do |f| %>
+
+    <div>
+      <label><%= f.text_field :first_name, placeholder: "First Name" %>
+    </div>
+
+    <div>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+    </div>
+
+    <div>
+      <%= f.text_field :email, placeholder: "Email" %>
+      
+
+
+  <div>
+    <%= f.password_field :password, placeholder: "Password" %>
+    
+  </div>
+
+  <div>
+  <%=f.text_field :diagnosis, placeholder: "Description of Injury" %>
+  </div>
+
+
+  <%=f.submit "Sign Up" %>
+
+  <% end %>
+</div>

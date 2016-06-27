@@ -1,0 +1,8 @@
+<div class="container">
+<h3>Edit exercise <%= @exercise.title %></h3>
+  <%= form_for(@exercise) do |f| %>
+  <%= f.text_field :title %><br>
+  <%= f.text_area :description %><br>
+  <%= f.submit "Save Changes" %>
+  <% end %>
+</div>
