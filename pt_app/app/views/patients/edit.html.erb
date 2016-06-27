@@ -1,1 +1,32 @@
-edit.html.erb
+Edit Your Profile
+
+<%= form_for @patient do |f| %>
+
+Patient Name 
+<div>
+  <%= f.text_field :first_name, value: @patient.first_name %>
+    <%= f.text_field :last_name, value: @patient.last_name %>
+</div>
+
+Email  
+<div>
+  <%= f.text_area :email, value: @patient.email %>
+</div>
+
+Picture
+<%= f.text_area :image_url %>
+
+Phone Number
+<div>
+  <%= f.text_area :phone_number, value: @patient.phone_number %>
+</div>
+
+Location
+<div>
+	<%= f.text_area :location %>
+</div>
+
+<%= f.submit "Save Profile" %>
+<% end %>
+
+

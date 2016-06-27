@@ -1,1 +1,5 @@
-index.html.erb
+<h1>Patient Directory</h1>
+
+<% @patients.each do |patient| %>
+	<%= patient.first_name + " " + @patient.last_name %>
+<%end%>
