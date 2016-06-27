@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627175332) do
+ActiveRecord::Schema.define(version: 20160627183840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,4 +29,38 @@ ActiveRecord::Schema.define(version: 20160627175332) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body_part"
+    t.string   "description"
+    t.string   "image_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "patient_exercises", force: :cascade do |t|
+    t.integer  "patient_id"
+    t.integer  "exercise_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "patient_exercises", ["exercise_id"], name: "index_patient_exercises_on_exercise_id", using: :btree
+  add_index "patient_exercises", ["patient_id"], name: "index_patient_exercises_on_patient_id", using: :btree
+
+  create_table "patients", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "image_url"
+    t.string   "phone_number"
+    t.string   "location"
+    t.string   "diagnosis"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_foreign_key "patient_exercises", "exercises"
+  add_foreign_key "patient_exercises", "patients"
 end
