@@ -5,5 +5,9 @@ class PatientsController < ApplicationController
 		render :index
 	end
 
+	def show
+		@patient = Patient.find(params[:id])
+		render :show
+	end
 
 end
