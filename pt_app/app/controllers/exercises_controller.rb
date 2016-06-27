@@ -8,13 +8,14 @@ class ExercisesController < ApplicationController
 
 	#individual exercise show page
 	def show
+		@exercises = Exercise.all
 		@exercise = Exercise.find(params[:id])
 		render :show
 	end
 
 	def edit
-		@exercise_update = Exercise.find(params[:id])
-		render "/exercises/edit"
+		@exercise = Exercise.find(params[:id])
+		render 'edit'
 	end
 
 	def new
@@ -22,26 +23,22 @@ class ExercisesController < ApplicationController
 		render :new
 	end
 
-	#create new exercise - this needs review
+	# #create new exercise - this needs review
 	def create
-		params[:exercises][#:doctor_id] = current_doctor.id
 
-		exercise = Exercise.find(params[:id])
+		exercise_params = params.require(:exercise),permit(:title, :description, :image_url)
+		@exercise = Exercise.create(exercise_params)
 
-		Exercise.create(exercise_params)
-
-		exercise_params = params.require(:exercises).permit(#exerciseparams)
-
-		redirect_to "/exercises/#{exercise.id}"
+		redirect_to "/exercises"
 	end
 
 
 	#edit with AJAX so can be udpated w/o page load
 	def update
-		@exercise_update = Exercise.find(params[:id])
+		@exercise = Exercise.find(params[:id])
 		exercise_params = params.require(:exercise).permit(:name, :description)
 
-		if @exercise_update.update_attributes(exercise_params)
+		if @exercise.update_attributes(exercise_params)
 			flash[:success] = "Exercise has been updated"
 
 			exercise = Exercise.find(params[:id])
