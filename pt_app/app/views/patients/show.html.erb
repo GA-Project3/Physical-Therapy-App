@@ -1,1 +1,15 @@
-<!-- Patients Show Page -->
+<img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" >
+<li><%= @patient.first_name + " " + @patient.last_name %></li>
+<li>Email: <%= @patient.email %></li>
+<li>Phone Number: <%= @patient.phone_number %></li>
+<li>Address: <%= @patient.location %></li>
+<li>Diagnosis <%= @patient_diagnosis %></li>
+
+<div>
+	List of Exercises:
+</div>
+
+<div>
+	Your Current Physician:
+</div>
+
