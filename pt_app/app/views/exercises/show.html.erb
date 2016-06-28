@@ -1,12 +1,13 @@
 <!-- Exercise Show Page -->
 
-<div class="container">
+<div class="container-fluid">
+<div class="row-fluid">
+	<div class="span9">
 	<h1><%= @exercise.title %></h1>
-
 </div>
-	
+
 	<img src= "<%= @exercise.image_url %>" width="400" height="300" /><br>
-	<p><%= @exercise.description %></p><br>
+	<p><%= @exercise.description %></p><br></div>
 
 <% if current_user.user_t == 'doctors' %>
 	<div class = "button">
@@ -17,5 +18,5 @@
 		<%= link_to "Add New Exercise", new_exercise_path %>
 	</div>
 
-<% end %>
 
+<% end %>
