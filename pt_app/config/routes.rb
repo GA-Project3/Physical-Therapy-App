@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 	get '/signin', to: "sessions#new"
 
 	##resources/rails created routes##
-	resources :doctors, :patients, :exercises
+	resources :doctors
+  resources :patients, :exercises
+
+
 
 end

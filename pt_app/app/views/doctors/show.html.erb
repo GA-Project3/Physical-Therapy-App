@@ -1,2 +1,44 @@
-<!-- Doctor Show Page -->
+<div class="container">
+  <h3><%= @doctor.first_name %>'s Profile</h3>
 
+
+  <!-- <%#= image_tag(@doctor.avatar) %> -->
+  <div>
+    <strong>Name: </strong><%= @doctor.first_name %> <%= @doctor.last_name %>
+  </div>
+
+
+
+  <div>
+    <b>Location:</b> <%= @doctor.location %>
+  </div>
+
+  <div>
+    <b>Bio:</b> <%= @doctor.description %>
+  </div>
+
+  <div>
+    <b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %>
+  </div>
+  <br>
+
+  <div>
+    <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
+            <button> Edit Profile </button>
+    </form>
+  </div>
+
+<!-- <div>
+ <b>Recent Posts:</b><br>
+    <%# @posts.each do |post| %>
+    <label>title: </label><%#= post.title %></br>
+    <label>Posted in: </label><a href="/cities/<%#= post.city_id %>"> <%#= post.city.name %></a></br>
+    <%#= truncate(post.description, :length => 1000) %></br></br>
+  <%# end %>
+</div>
+ -->
+
+</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+ -->
