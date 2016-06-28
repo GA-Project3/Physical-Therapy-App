@@ -10,11 +10,6 @@ Rails.application.routes.draw do
 	get '/signin', to: "sessions#new"
 
 
-	##resources/rails created routes##
-	resources :doctors
-  resources :patients, :exercises
-
-
 	#add new exercise
 	# get '/exercises', to: 'exercises#index'
 	get '/exercises/new', to: "exercises#new", as: "new_exercise"
