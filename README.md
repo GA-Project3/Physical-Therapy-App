@@ -21,16 +21,5 @@ Technologies Used:
 * [Trello] (https://trello.com/b/2hUBMDlJ)
 
 * [Schedule/Milestone] (https://docs.google.com/spreadsheets/d/1v_VcVBdGkPDtkP9yZEItrfRznMJE9yYMZdebbxAq5Pc/edit#gid=0)
-
-![ERD/Model](./planning/image.jpeg)
-
-#Wireframes:
-
-<details><summary>Wireframes</summary>
-[Wireframe PDF](./planning/images.pdf)
-
-
-
-
-
-
+* ![ERD/Model](./planning/image.jpeg)
+* ![./_stack-of-square-papers.png](./planning/Wireframes.pdf)
