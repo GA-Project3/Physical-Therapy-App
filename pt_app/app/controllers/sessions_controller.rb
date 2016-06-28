@@ -1,26 +1,33 @@
 class SessionsController < ApplicationController
 
-	# def new
-	# 	@user = User.new
-	# 	render :new
-	# end
+	def new
+		render :new
+	end
 
-	# def create
- #  	user_params = params.require(:user).permit(:email, :password)
- #  	@user = User.confirm(user_params)
-	# 	if @user
-	# 		login(@user)
-	# 		redirect_to "/users/#{@user.id}"
-	# 	else
-	#     	flash[:error] = 'Invalid email/password combination'
+	def create
+	  	user = params.require(:user).permit(:email, :password)
+	  	@user = Doctor.find_by_email(user[:email])
+	  	if @user != nil
+	  		@user= Doctor.confirm(user)
+	  		user_t = "doctors"
+	  	else
+	  		@user = Patient.confirm(user)
+	  		user_t = "patients"
+	  	end
 
-	# 		redirect_to "/signin"
-	# 	end
-	# end
+		if @user
+			login(@user, user_t)
+			redirect_to "/#{user_t}/#{@user.id}"
+		else
+	    	flash[:error] = 'Invalid email/password combination'
 
-	# def destroy
-	# 	logout
-	# 	redirect_to '/'
-	# end
+			redirect_to "/signin"
+		end
+	end
+
+	def destroy
+		logout
+		redirect_to '/'
+	end
 
 end

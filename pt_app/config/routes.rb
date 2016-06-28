@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 	##signin/sessions##
 	get '/signin', to: "sessions#new"
 
+	post '/sessions', to:'sessions#create'
+
+	delete '/sessions', to: 'sessions#destroy'
 
 
 	#add new exercise
