@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
 	get "exercises/:id", to: "exercises#show"
 
+
+	##add_exercise to patient's show page##
+	post '/patient/:id/exercises/add', to: 'patients#add_exercise'
+
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises
 

@@ -27,6 +27,10 @@ class PatientsController < ApplicationController
 	#individual patient show page
 	def show
 		@patient = Patient.find(params[:id])
+		@exercise = exercise.find(params[:id])
+
+		@patient_exercise = patient.exercise.find(params[:id])
+
 		render :show
 	end
 
@@ -47,6 +51,13 @@ class PatientsController < ApplicationController
 			render :edit
 		end
 
+	end
+
+	def add_exercise
+		@exercise = Exercise.find(params[:id])
+
+
+		redirect_to '/patients/'
 	end
 
 	#delete patient's profile
