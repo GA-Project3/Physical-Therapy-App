@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 	post '/sessions', to:'sessions#create'
 
 
+
 	delete '/sessions', to: 'sessions#destroy'
+
 
 	#add new exercise
 	# get '/exercises', to: 'exercises#index'
