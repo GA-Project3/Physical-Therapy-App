@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 	post '/sessions', to:'sessions#create'
 
 
-	delete '/sessions', to: 'sessions#destroy'
 
+	delete '/sessions', to: 'sessions#destroy'
 
 
 	#add new exercise
@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 	get "/exercises/:id/edit", to: "exercises#edit", as: "edit"
 
 	get "exercises/:id", to: "exercises#show"
+
+	delete "exercises/:id", to: "exercises#destroy", as: "delete"
 
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises

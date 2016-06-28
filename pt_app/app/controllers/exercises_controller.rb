@@ -8,7 +8,7 @@ class ExercisesController < ApplicationController
 
 	#individual exercise show page
 	def show
-		@exercises = Exercise.all
+		# @exercises = Exercise.all
 		@exercise = Exercise.find(params[:id])
 		render :show
 	end
@@ -23,39 +23,43 @@ class ExercisesController < ApplicationController
 		render :new
 	end
 
-	# #create new exercise - this needs review
+	# #create new exercise
 	def create
-
-		exercise_params = params.require(:exercise),permit(:title, :description, :image_url)
-		@exercise = Exercise.create(exercise_params)
-
-		redirect_to "/exercises"
+		# exercise_params = params.require(:exercise),permit(:title, :description, :image_url)
+		@exercise = Exercise.new(exercise_params)
+		if @exercise.save
+			redirect_to "/exercises/#{exercise.id}"
+		else
+			redirect_to "/exercises/new"
+		end
 	end
 
 
 	#edit with AJAX so can be udpated w/o page load
 	def update
 		@exercise = Exercise.find(params[:id])
-		exercise_params = params.require(:exercise).permit(:name, :description)
+		# exercise_params = params.require(:exercise).permit(:name, :description)
 
 		if @exercise.update_attributes(exercise_params)
-			flash[:success] = "Exercise has been updated"
-
-			exercise = Exercise.find(params[:id])
-			redirect_to "/exercises/#{exercise.id}"
-
-		else redirect_to :show #sb check
-
+			redirect_to "/exercises/#{@exercise.id}"
+		else
+			render :edit
 		end
 	end
 
-
 	def destroy
-		ex = Exercise.find(params[:id])
-		ex.destroy
-		redirect_to :index
+		@exercise = Exercise.find(params[:id])
+		@exercise.destroy
+		redirect_to '/exercises'
 	end
 
+private
+
+def exercise_params
+
+    params.permit(:exercise, :title, :description, :body_part, :image_url)
+
+  end
 
 
 end
