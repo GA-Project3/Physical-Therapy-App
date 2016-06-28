@@ -29,7 +29,7 @@ We'll have three models: patients,  doctors and exercises. The patient and exerc
 [Schedule/Milestones] (https://docs.google.com/spreadsheets/d/1v_VcVBdGkPDtkP9yZEItrfRznMJE9yYMZdebbxAq5Pc/edit#gid=0)
 
 <details><summary>Entity Relationship Diagram</summary>
-![ERD/Model](./planning/DefaultUserImage.png)
+![ERD/Model](./planning/ERD.png)
 </details>
 
 <details><summary>Wireframes</summary>
