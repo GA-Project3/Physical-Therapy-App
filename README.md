@@ -22,6 +22,22 @@ Technologies Used:
 
 [Schedule/Milestones] (https://docs.google.com/spreadsheets/d/1v_VcVBdGkPDtkP9yZEItrfRznMJE9yYMZdebbxAq5Pc/edit#gid=0)
 
+<details><summary>Entity Relationship Diagram</summary>
 ![ERD/Model](./planning/DefaultUserImage.png)
+</details>
 
-![Wireframes](./planning/Wireframes.pdf)
+<details><summary>Wireframes</summary>
+![Home](./planning/Home.jpg)
+![DoctorSignup](./planning/DoctorSignup.jpg)
+![DoctorProfile](./planning/DoctorProfile.jpg)
+![PatientProfile](./planning/PatientProfile-DoctorView.jpg)
+![ExerciseAssignment](./planning/ExerciseAssignment.jpg)
+![ExerciseIndex](./planning/ExerciseIndex.jpg)
+![ExerciseShow](./planning/ExerciseShow.jpg)
+![PatientSignup](./planning/PatientSignup.jpg)
+![PatientProfile](./planning/PatientProfile.jpg)
+![DoctorProfile](./planning/DoctorProfile-PatientView.jpg)
+![DoctorIndex](./planning/DoctorIndex.jpg)
+![About](./planning/About.jpg)
+![PatientIndex](./planning/PatientIndex(ICEBOX).jpg)
+</details>
