@@ -1,5 +1,13 @@
-Home Page
+<div>
+	<ul class>
+		<% if current_user == nil %>
+			<li><%= link_to 'Physician SignUp', new_doctor_path(@doctor) %></li>
+			<li><%= link_to 'Patient SignUp', new_patient_path(@patient) %></li>
+		<%else%>
+			<%if current_user.user_t == 'doctors' || 'patients' %>
+				<div>Welcome To Physical Therapy App</div>
+			<%end%>
+		<%end%>
+	</ul>
+</div>
 
-Log-in
-
-Sign-Up

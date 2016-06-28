@@ -6,10 +6,19 @@
 <li>Diagnosis <%= @patient_diagnosis %></li>
 
 <div>
+	<% if current_user.user_t == 'patients' %>
+	<div class = "button">
+		<%= link_to "Edit Profile", edit_patient_path %>
+	</div>
+	<%end%>
+</div>
+
+<div>
 	List of Exercises:
 </div>
 
 <div>
 	Your Current Physician:
+	<!-- Doctor.find(Patient.doctor_id) -->
 </div>
 

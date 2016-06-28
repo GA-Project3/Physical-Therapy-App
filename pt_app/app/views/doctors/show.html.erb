@@ -22,11 +22,19 @@
   </div>
   <br>
 
+  <% if current_user.user_t == 'doctors' %>
+    <div>
+      <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
+              <button> Edit Profile </button>
+      </form>
+  <br>
   <div>
-    <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
-            <button> Edit Profile </button>
-    </form>
+    <h1>Your Patients</h1>
+
   </div>
+    <% end %>
+  </div>
+
 
 <!-- <div>
  <b>Recent Posts:</b><br>

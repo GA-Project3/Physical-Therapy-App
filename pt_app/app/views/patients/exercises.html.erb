@@ -12,8 +12,7 @@
 
 			<div class="row">
 				<% if @patient_exercises.include? (exercise) %>
-					<%= button_to "Remove", action: "destroy" %>
-					
+					<%= button_to "Remove", {}, :disabled => true %>
 				<% else %>
 					<button>Add</button>
 				<% end %>
