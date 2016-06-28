@@ -18,7 +18,7 @@ RSpec.describe Doctor, type: :model do
         expect(@doctor).to_not be_valid
     end
 
-     it "should not let a user be created with a valid password" do
+     it "should not let a user be created without a valid password" do
       @doctor.password = nil
         expect(@doctor).to_not be_valid
      end
@@ -32,6 +32,26 @@ RSpec.describe Doctor, type: :model do
       @doctor.phone = nil
         expect(@doctor).to_not be_valid
      end
+
+     it "should confirm a user :password" do
+        doctor = Doctor.new({password: "blah", password_confirmation: "bla"})
+        expect(doctor.save).to be(false)
+    end
+
+      it "should return false when user password is incorrect" do
+        user = User.create({
+                            email: "blah@blah.com",
+                            email_confirmation: "blah@blah.com",
+                            password: "blahBLAH",
+                            password_confirmation: "blahBLAH"
+                        })
+        expect(User.confirm("blah@blah.com", "blahblah")).to be(false)
+    end
+
+      it "should confirm a :doctor's email" do
+        user = Doctor.new({email: "example2@email.com", email_confirmation: "example@email.com"})
+        expect(user.save).to be(false)
+    end
 
   end
   describe "length validations" do
