@@ -1,4 +1,7 @@
 <% @doctors.each do |doctor| %>
-
-
+  <a href="/doctors/<%= doctor.id %>">
+    <%= doctor.first_name %> </br>
+  </a>
 <% end %>
+
+
