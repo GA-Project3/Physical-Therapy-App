@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-	##resources/rails created routes##
-	resources :doctors, :patients, :exercises
 
 	##home page##
 	get '/', to: 'home#home', as: 'home'
@@ -24,5 +22,7 @@ Rails.application.routes.draw do
 
 	get "exercises/:id", to: "exercises#show"
 
+	##resources/rails created routes##
+	resources :doctors, :patients, :exercises
 
 end
