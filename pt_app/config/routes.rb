@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
 	get "exercises/:id", to: "exercises#show"
 
+	delete "exercises/:id", to: "exercises#destroy", as: "delete"
+
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises
 

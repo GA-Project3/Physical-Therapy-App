@@ -8,13 +8,16 @@
 		<div class = "button">
 			<%= button_to "Add New Exercise", new_exercise_path %>
 		</div>
+		
+		<button type="button" class="btn btn-primary">Default</button>
+
 
 
 		<% @exercises.each do |exercise| %>
 
 			<h1><%= exercise.title %></h1>
 
-			<img src= "<%= exercise.image_url %>" /><br>
+			<img src= "<%= exercise.image_url %>" width="400" height="300" /><br>
 
 			Body Part: <%= exercise.body_part %> <br>
 			Description: <%= exercise.description %>
@@ -24,16 +27,14 @@
 			</div>
 
 			<div class = "button">
-				<%= link_to "Delete Exercise", edit_path(exercise.id) %>
+				<%= link_to "Delete Exercise", delete_path(exercise.id) %>
 			</div>
-
-			<div class = "button">
-			<%= button_to "Add New Exercise", new_exercise_path %>
-			</div>
-
-
 	</div>
 <% end %>
+
+<div class = "button">
+	<%= button_to "Add New Exercise", new_exercise_path %>
+</div>
 
 </div>
 
