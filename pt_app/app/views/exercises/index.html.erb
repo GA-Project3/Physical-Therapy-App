@@ -1,17 +1,11 @@
 <!-- exercise index page -->
 
 <div class="container-fluid">
-
 	<div class="row">
-
 
 		<div class = "button">
 			<%= button_to "Add New Exercise", new_exercise_path %>
 		</div>
-		
-		<button type="button" class="btn btn-primary">Default</button>
-
-
 
 		<% @exercises.each do |exercise| %>
 
