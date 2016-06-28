@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 	##home page##
 	get '/', to: 'home#home', as: 'home'
 
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
 
 	##signin/sessions##
 	get '/signin', to: "sessions#new"
+
 
 
 	#add new exercise
@@ -24,5 +24,6 @@ Rails.application.routes.draw do
 
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises
+
 
 end
