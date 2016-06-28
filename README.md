@@ -17,9 +17,11 @@ Technologies Used:
 * JS/Jquery for front-end
 * AJAX
 
-#Planning: 
-* [Trello] (https://trello.com/b/2hUBMDlJ)
+#Planning
+[Trello] (https://trello.com/b/2hUBMDlJ)
 
-* [Schedule/Milestone] (https://docs.google.com/spreadsheets/d/1v_VcVBdGkPDtkP9yZEItrfRznMJE9yYMZdebbxAq5Pc/edit#gid=0)
-* ![ERD/Model](./planning/image.jpeg)
-* ![./_stack-of-square-papers.png](./planning/Wireframes.pdf)
+[Schedule/Milestones] (https://docs.google.com/spreadsheets/d/1v_VcVBdGkPDtkP9yZEItrfRznMJE9yYMZdebbxAq5Pc/edit#gid=0)
+
+![ERD/Model](./planning/DefaultUserImage.png)
+
+![Wireframes](./planning/Wireframes.pdf)
