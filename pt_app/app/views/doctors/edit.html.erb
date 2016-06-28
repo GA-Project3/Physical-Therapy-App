@@ -1,1 +1,35 @@
-edit.html.erb
+  <div class="container">
+  <%= form_for Doctor.new do |f| %>
+
+  <!-- <div>
+   <%#= f.file_field :avatar %>
+  </div> -->
+  <div>
+
+  <%= f.text_field :first_name, placeholder: "First Name" %> <%= f.text_field :last_name, placeholder: "Last Name" %>
+  </div>
+  <div>
+  <%= f.text_field :email, placeholder: "Email" %> <%= f.text_field :confirm_email, placeholder: "Confirm Email" %>
+  </div>
+  <div>
+    <%= f.text_field :location, placeholder: "Location" %>
+  </div>
+  <div>
+    <%= f.password_field :password, placeholder: "Password" %> <%= f.password_field :confirm_password, placeholder: "Confirm Password" %>
+  </div>
+
+  <div>
+    <%= f.text_field :description, placeholder: "Education, degrees, and specialty" %>
+  </div>
+
+  <br>
+  <%= f.submit "Update Profile" %>
+
+  <br>
+
+
+
+
+  <% end %>
+
+  </div>
