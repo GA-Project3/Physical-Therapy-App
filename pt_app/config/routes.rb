@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
 	##signin/sessions##
-	get '/signin', to: "sessions#new"
+	get '/signin', to: 'sessions#new'
 
 	##create a session##
 	post '/sessions', to:'sessions#create'
@@ -18,17 +18,19 @@ Rails.application.routes.draw do
 
 	#add new exercise
 	# get '/exercises', to: 'exercises#index'
-	get '/exercises/new', to: "exercises#new", as: "new_exercise"
+	get '/exercises/new', to: 'exercises#new', as: 'new_exercise'
 
-	post "/exercises/new", to: "exercises#create"
+	post '/exercises/new', to: 'exercises#create'
 
 	#edit exercise, return edit form for editing exercise
-	get "/exercises/:id/edit", to: "exercises#edit", as: "edit"
+	get '/exercises/:id/edit', to: 'exercises#edit', as: 'edit'
 
-	get "/exercises/:id", to: "exercises#show"
+	get '/exercises/:id', to: 'exercises#show'
 
+	delete '/exercises/:id', to: 'exercises#destroy', as: 'delete'
 
-	delete "/exercises/:id", to: "exercises#destroy", as: "delete"
+	# custom route to enable assigning an exercise to a patient
+	get '/patients/:id/assign_exercise', to: 'patients#assign_exercise'
 
 	# nested route to enable a list of exercises attributed to patient, separate from exercises index page
 	get '/patients/:id/exercises', to: 'patients#patient_exercises', as: 'patient_exercises'
