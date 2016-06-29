@@ -3,6 +3,7 @@
 <div class="container-fluid">
 
 	<div class="row">
+		<% if current_user != nil %>
 		<% if current_user.user_t == 'doctors' %>
 
 
@@ -11,7 +12,11 @@
 		</div>
 
 
+		<button type="button" class="btn btn-primary">Default</button>
+
+
 		<% end %>
+		<%end%>
 
 		<% @exercises.each do |exercise| %>
 
@@ -23,8 +28,11 @@
 			Body Part: <%= exercise.body_part %> <br>
 			Description: <%= exercise.description %>
 
+
+			<% if current_user != nil %>
 			<% if current_user.user_t == 'doctors' %>
-			
+
+
 			<div class = "button">
 				<%= link_to "Edit Exercise", edit_path(exercise.id) %>
 			</div>
@@ -33,16 +41,18 @@
 				<%= link_to "Delete Exercise", delete_path(exercise.id) %>
 			</div>
 
+			<%end%>
 			<% end %>
 	</div>
 <% end %>
 
+<% if current_user != nil %>
 <% if current_user.user_t == 'doctors' %>
 
 	<div class = "button">
 		<%= button_to "Add New Exercise", new_exercise_path %>
 	</div>
-
+<%end%>
 <% end %>
 
 </div>
