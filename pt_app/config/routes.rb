@@ -31,8 +31,11 @@ Rails.application.routes.draw do
 
 	get '/patients/:id/assign_exercise', to: 'patients#assign_exercise'
 
+	# nested route to enable a list of exercises attributed to patient, separate from exercises index page
+	get '/patients/:id/exercises', to: 'patients#patient_exercises', as: 'patient_exercises'
+
+
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises
-
 
 end

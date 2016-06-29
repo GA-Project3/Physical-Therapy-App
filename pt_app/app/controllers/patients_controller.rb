@@ -62,6 +62,13 @@ class PatientsController < ApplicationController
 		@exercise = Exercise.find(params[:exercise_id])
 		@patient.exercises << @exercise
 		render status: 200
+
+	def patient_exercises
+		@patient = Patient.find(params[:id])
+		@exercises = Exercise.all
+		@patient_exercises = @patient.exercises
+
+		render :exercises
 	end
 
 end
