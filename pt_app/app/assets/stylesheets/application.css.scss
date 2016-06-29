@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+nav {
+    position: fixed;
+    z-index: 1;
+    background: white;
+    width: 100vw;
+    height: 30px;
+    top: 0;
+}
+
+
+#myCarousel {
+  height:100vh;
+  width:100vw;
+  // overflow-y: hidden;
+  div.carousel-inner {
+    max-height: 100%;
+    height: 100% !important;
+  }
+  div.item {
+    max-height: 100%;
+  }
+}
+
+div.button-wrapper {
+    height: 100px;
+    position: absolute;
+    width: 500px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 5;
+    top: 300px;
+    text-align: center;
+  }
+
+img.first-slide {
+  height:100% !important;
+  width: 100%;
+}
+.second-slide {
+  height:100% !important;
+  width:100%;
+}
+.third-slide {
+  height:100% !important;
+  width:100%;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+}
+
