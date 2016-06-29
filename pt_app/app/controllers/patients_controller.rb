@@ -33,6 +33,7 @@ class PatientsController < ApplicationController
 	def show
 		@patient = Patient.find(params[:id])
 		@exercises = @patient.exercises
+		@doctor = @patient.doctor
 		render :show
 	end
 

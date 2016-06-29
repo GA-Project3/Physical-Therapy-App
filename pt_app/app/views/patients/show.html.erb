@@ -1,9 +1,15 @@
-<img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" >
-<li><%= @patient.first_name + " " + @patient.last_name %></li>
-<li>Email: <%= @patient.email %></li>
-<li>Phone Number: <%= @patient.phone %></li>
-<li>Address: <%= @patient.location %></li>
-<li>Diagnosis <%= @patient_diagnosis %></li>
+<!-- patient information -->
+<div class='col-md-2'><img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" width='150px'></div>
+<div class='col-md-10'>
+  <div><h2><%= @patient.first_name + " " + @patient.last_name %></h2></div>
+  <div><b>Email:</b> <%= @patient.email %></div>
+  <div><b>Phone:</b> <%= @patient.phone %></div>
+  <div><b>Location:</b> <%= @patient.location %></div>
+  <div><b>Bio:</b> <%= @patient.diagnosis %></div>
+  <div><b>Patient Since:</b> <%= @patient.created_at.strftime("%b %d, %Y") %></div>
+</div>
+<div class="clearfix"></div>
+  <br>
 
 <div>
 <% if current_user != nil %>
@@ -17,24 +23,39 @@
 </div>
 
 <div>
-	List of Exercises:
+	<h4>Your Current Physician</h4>
 </div>
-
-<div class="row">
-
-  <% @exercises.each do |exercise| %>
   <div class='col-md-1'>
-    <img src="<%= exercise.image_url %>" width="100px"/>
+    <img src="<%= @doctor.image_url %>" width="80px" alt="@doctor image"/>
+  </div>
+  <div class='col-md-6'>
+    <h6><%= @doctor.first_name %> <%= @doctor.last_name %></h6>
+    <%= @doctor.description %>
+  </div>
+  <div class="clearfix"></div>
+
+<div>
+  <h4>List of Exercises</h4>
+  <!-- add Edit button to change exercises if Doctor -->
+  <% if current_user != nil %>
+  <% if current_user.user_t == 'doctors' %>
+    <div class = "button">
+      <%= link_to "Edit", patient_exercises_path %>
+    </div>
+    <%else%>
+  <%end%>
+  <%end%>
+</div>
+<% @exercises.each do |exercise| %>
+  <div class='col-md-1'>
+    <img src="<%= exercise.image_url %>" width="80px" alt="exercise image"/>
   </div>
   <div class='col-md-6'>
     <h6><%= exercise.title %></h6>
     <%= exercise.description %>
-  <% end %>
+  </div>
+  <div class="clearfix"></div>
+  <hr>
+<% end %>
 
-</div>
-
-<div>
-	Your Current Physician:
-	<!-- Doctor.find(Patient.doctor_id) -->
-</div>
 
