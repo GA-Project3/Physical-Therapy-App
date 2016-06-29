@@ -1,7 +1,6 @@
 class DoctorsController < ApplicationController
 
-  before_action :require_login, :except => [:index, :new], :only => [:show]
-  before_action :is_doctor, only:[:edit]
+  before_action :require_login, :except => [:index, :new, :create]
   before_action :doctor_profile?, only:[:edit]
 
 

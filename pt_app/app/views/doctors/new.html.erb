@@ -23,6 +23,9 @@
   <div>
     <%= f.text_field :description, placeholder: "Education, degrees, and specialty" %>
   </div>
+  
+  <%= f.label :image_url, "Profile Photo:" %>
+   <%= uploadcare_uploader_field :doctor, :image_url %>
 
   <br>
   <%= f.submit "Sign up" %>

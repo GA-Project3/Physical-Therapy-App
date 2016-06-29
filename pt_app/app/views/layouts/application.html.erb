@@ -6,8 +6,25 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+  <%= include_uploadcare_widget_from_cdn version: "1.5.5", min: true %>
+    <%= uploadcare_settings %>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   
+<!-- 
+  <script src="https://ucarecdn.com/widget/1.5.5/uploadcare/uploadcare-1.5.5.min.js"></script>
+
+	<script>
+		  UPLOADCARE_LOCALE     = "en";
+		  UPLOADCARE_TABS       = "file url facebook gdrive box skydrive instagram evernote";
+		  UPLOADCARE_AUTOSTORE  = true;
+		  UPLOADCARE_PUBLIC_KEY = 'b87de74d4f4e35f8c03e';
+		  UPLOADCARE_CDN_BASE   = "https://ucarecdn.com/";
+		  UPLOADCARE_PATH_VALUE = false;
+	</script> -->
+<%= javascript_include_tag "https://ucarecdn.com/widget/2.5.5/uploadcare/uploadcare-2.5.5.min.js" %>
+
+
 </head>
 <body>
 

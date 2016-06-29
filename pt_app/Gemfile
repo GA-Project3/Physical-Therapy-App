@@ -32,10 +32,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap'
+#gem 'bootstrap'
+ gem 'bootstrap-sass', '~> 3.3.6'
+ gem 'autoprefixer-rails'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'uploadcare-rails', "~> 1.0"
 
 #awesome print
 gem 'awesome_print', require: 'ap'
