@@ -1,5 +1,7 @@
 class DoctorsController < ApplicationController
 
+before_action :require_login, :except => [:index]
+
 	def index
 		@doctors = Doctor.all
     # @doctor = Doctor.find(doctor_params)
