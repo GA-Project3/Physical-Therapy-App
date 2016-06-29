@@ -18,9 +18,7 @@ Rails.application.routes.draw do
 	get '/exercises/new', to: 'exercises#new', as: 'new_exercise'
 
 	#add new exercise
-
 	post '/exercises/new', to: 'exercises#create'
-
 
 	#edit exercise, return edit form for editing exercise
 	get '/exercises/:id/edit', to: 'exercises#edit', as: 'edit'

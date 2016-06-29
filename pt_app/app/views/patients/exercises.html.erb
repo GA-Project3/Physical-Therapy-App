@@ -3,21 +3,22 @@
 <!-- /patient/exercises view page-->
 <div class="container-fluid">
 
+
 	<div class="row">
+
 		<h1><%= @patient.first_name  + " " + @patient.last_name %></h1>
 
+
+	<div class="exercise">
 		<% @exercises.each do |exercise| %>
 			<div class='col-md-2'>
-			  <img src="<%= exercise.image_url %>" width="80px" alt="exercise image"/>
-			</div>
-
-
 			<!--image/youtube div -->
 		<% if exercise.image_url.include? "youtu" %>
 			<%= embed(exercise.image_url) %> 
 		<% else %>
 			 <img src= "<%= exercise.image_url %>" width="400" height="300" />
 		<% end %>
+		</div>
 
 
 			<div class='col-md-6'>
@@ -26,13 +27,17 @@
 			</div>
 
 			<div class="col-md-4">
-
-					<button class="exercise" id='<%= exercise.id %>'>Remove</button>
+			<% if @patient.exercises.include?(exercise) %>
+				<button class="exercise btn btn-warning" id='<%= exercise.id %>'>Remove</button>
+			<% else %>
+				<button class="exercise btn btn-success" id='<%= exercise.id %>'>Add</button>
+			<% end %>
 
 			</div>
 			<div class="clearfix"></div>
 			<hr>
 		<% end %>
 
+	</div>
 	</div>
 </div>
