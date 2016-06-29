@@ -65,10 +65,12 @@ class PatientsController < ApplicationController
 
 	#special route to assign or unassign exercise to patient
 	def assign_exercise
-		@patient = Patient.find(params[:patient_id])
-		@exercise = Exercise.find(params[:exercise_id])
-		@patient.exercises << @exercise
-		render status: 200
+		patient_id = params['ids'][:patient_id]
+		exercise_id = params['ids'][:exercise_id]
+		patient = Patient.find(patient_id)
+		exercise = Exercise.find(exercise_id)
+		patient.exercises << exercise
+		render :status => 200
 	end
 
 	def patient_exercises

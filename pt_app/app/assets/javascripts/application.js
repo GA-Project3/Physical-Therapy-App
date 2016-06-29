@@ -19,15 +19,16 @@
 //= require_tree .
 
 $(document).ready(function() {
+
   $(".exercise").click(function(e){
     e.preventDefault;
     $.ajax({
       url: window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
       type: 'GET',
-      data: {ids: {patient_id:"4",
-                    exercise_id: this.id}},
+      data: {ids: {patient_id: this.target.pid,
+                    exercise_id: this.target.id}},
       success: function(){
-        $(this).addClass("done");
+        $(".exercise").addClass("done");
       }
     });
     alert( "Handler for "+ this.id +" called." );
@@ -37,23 +38,3 @@ $(document).ready(function() {
 
 
 
-
-
-$.ajax({
-    url: "/sub_comments",
-    type: "POST",
-    data: {subcomment: {
-             field: val, 
-             field2: val, etc... }},
-    success: function(resp){ }
-});
-Rails
-
-def create
-  @sub_comment = SubComment.new params['subcomment']
-  if @sub_comment.save
-    render :json => { } # send back any data if necessary
-  else
-    render :json => { }, :status => 500
-  end
-end
