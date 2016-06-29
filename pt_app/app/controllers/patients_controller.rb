@@ -35,7 +35,6 @@ class PatientsController < ApplicationController
 	end
 
 	def select_physician
-		p params
 		patient = Patient.find(params[:id])
 		doctor_id = params[:doctor_id]
 		patient.doctor_id = doctor_id
@@ -44,7 +43,6 @@ class PatientsController < ApplicationController
 		else
 			redirect_to "/patients/#{patient.id}/physician_list"
 		end
-
 	end
 
 	#individual patient show page
