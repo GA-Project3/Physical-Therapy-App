@@ -1,6 +1,9 @@
 class PatientsController < ApplicationController
 
-	before_action :require_login
+	before_action :require_login, :except => [:new], :only => [:show]
+	before_action :is_patient, only:[:edit]
+	before_action :patient_profile?, only:[:edit, :show]
+
 
 	#patients index
 	def index
@@ -34,6 +37,7 @@ class PatientsController < ApplicationController
 
 	#edit individual patient's profile page
 	def edit
+		
 		@patient = Patient.find(params[:id])
 		render :edit
 	end
