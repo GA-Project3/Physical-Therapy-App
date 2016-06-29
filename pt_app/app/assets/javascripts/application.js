@@ -19,6 +19,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+  console.log("sanity check")
   
   $(".exercise").click(function(e){
     e.preventDefault;

@@ -70,8 +70,16 @@ class PatientsController < ApplicationController
 		exercise_id = params['ids'][:exercise_id]
 		patient = Patient.find(patient_id)
 		exercise = Exercise.find(exercise_id)
-		patient.exercises << exercise
-		render :status => 200
+		p "***************************************************Patient ID:"+patient.id.to_s+" "+exercise.id.to_s
+		if patient.exercises.include?(exercise)
+			p "***************************************************Already exists"
+			patient.exercises << exercise
+			render :status => 200
+			redirect_to doctor_path
+		else
+			render :status => 412
+			redirect_to patient_exercises_path
+		end
 	end
 
 	def patient_exercises
