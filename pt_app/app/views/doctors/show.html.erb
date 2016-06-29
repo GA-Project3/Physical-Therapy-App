@@ -34,11 +34,21 @@
         <h1>Patients</h1>
       </div>
       <!--  show patients for this doctor -->
-      <% @exercises.each do |patient| %>
-        <h3><%= patient.first_name patient.last_name %></h3>
-        <%= patient.description %>
-        <img src="<%= patient.image_url %>" width="200"/>
+      <% @patients.each do |patient| %>
+        <div class='col-md-1'>
+          <img src="<%= patient.image_url %>" width="80px" alt="patient image"/>
+        </div>
+        <div class='col-md-11'>
+          <h4><a href="/patients/<%=patient.id%>"><%= patient.first_name%>  <%= patient.last_name%></a></h4>
+          <%= patient.diagnosis %>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
       <% end %>
+    <!-- end of patient list -->
+
+
+
 
     <% end %>
   </div>
