@@ -23,7 +23,7 @@ class PatientsController < ApplicationController
 		if @patient.save
 			# binding.pry
 			login(@patient, 'patients')
-			redirect_to "/patients/#{@patient.id}"
+			redirect_to "/patients/#{@patient.id}/physician_list"
 		else 
 			redirect_to '/patients/new'
 		end
