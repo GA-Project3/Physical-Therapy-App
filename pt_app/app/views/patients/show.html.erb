@@ -21,9 +21,9 @@
 
   <% @exercises.each do |exercise| %>
   <div class='col-md-1'>
-    <img src="<%= exercise.image_url %>" width="50px"/>
+    <img src="<%= exercise.image_url %>" width="100px"/>
   </div>
-  <div class='col-md-1'>
+  <div class='col-md-6'>
     <h6><%= exercise.title %></h6>
     <%= exercise.description %>
   <% end %>

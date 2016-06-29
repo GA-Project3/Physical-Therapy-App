@@ -15,3 +15,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$("#exercise").click(function(e){
+  e.preventDefault;
+  alert( "Handler for .click() called." );
+  
+});

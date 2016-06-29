@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
 	delete '/exercises/:id', to: 'exercises#destroy', as: 'delete'
 
+	# custom route to enable assigning an exercise to a patient
 	get '/patients/:id/assign_exercise', to: 'patients#assign_exercise'
 
 	# nested route to enable a list of exercises attributed to patient, separate from exercises index page
