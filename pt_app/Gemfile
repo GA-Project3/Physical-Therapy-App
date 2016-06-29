@@ -34,6 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap'
 
+gem 'uploadcare-rails', "~> 1.0"
 
 #awesome print
 gem 'awesome_print', require: 'ap'
