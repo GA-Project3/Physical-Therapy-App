@@ -16,8 +16,42 @@
 //= require turbolinks
 //= require_tree .
 
-$("#exercise").click(function(e){
-  e.preventDefault;
-  alert( "Handler for .click() called." );
-  
+$(document).ready(function() {
+  $(".exercise").click(function(e){
+    e.preventDefault;
+    $.ajax({
+      url: window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
+      type: 'GET',
+      data: {ids: {patient_id:"4",
+                    exercise_id: this.id}},
+      success: function(){
+        $(this).addClass("done");
+      }
+    });
+    alert( "Handler for "+ this.id +" called." );
+    
+  });
 });
+
+
+
+
+
+$.ajax({
+    url: "/sub_comments",
+    type: "POST",
+    data: {subcomment: {
+             field: val, 
+             field2: val, etc... }},
+    success: function(resp){ }
+});
+Rails
+
+def create
+  @sub_comment = SubComment.new params['subcomment']
+  if @sub_comment.save
+    render :json => { } # send back any data if necessary
+  else
+    render :json => { }, :status => 500
+  end
+end
