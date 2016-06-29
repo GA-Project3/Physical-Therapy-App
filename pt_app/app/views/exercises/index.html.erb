@@ -20,10 +20,17 @@
 
 		<% @exercises.each do |exercise| %>
 
-
 			<h1><%= link_to exercise.title, exercise_path(exercise) %></h1>
 
+			<% if exercise.image_url.include? "youtu" %>
+						<%= embed(exercise.image_url) %> 
+			<% else %>
+				<img src= "<%= exercise.image_url %>" width="400" height="300" />
+				<% end %>
+
 			<img src= "<%= exercise.image_url %>" width="400" height="300" /><br>
+
+			<%= embed(exercise.image_url) %>
 
 			Body Part: <%= exercise.body_part %> <br>
 			Description: <%= exercise.description %>

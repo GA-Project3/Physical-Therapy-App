@@ -50,7 +50,8 @@ class PatientsController < ApplicationController
 	#individual patient show page
 	def show
 		@patient = Patient.find(params[:id])
-		@doctor = Doctor.find(@patient.doctor_id)
+		@exercises = @patient.exercises
+		@doctor = @patient.doctor
 		render :show
 	end
 
@@ -80,6 +81,15 @@ class PatientsController < ApplicationController
 		redirect_to '/'
 	end
 
+	#special route to assign or unassign exercise to patient
+	def assign_exercise
+		patient_id = params['ids'][:patient_id]
+		exercise_id = params['ids'][:exercise_id]
+		patient = Patient.find(patient_id)
+		exercise = Exercise.find(exercise_id)
+		patient.exercises << exercise
+		render :status => 200
+	end
 
 	def patient_exercises
 		@patient = Patient.find(params[:id])
@@ -88,13 +98,16 @@ class PatientsController < ApplicationController
 
 		render :exercises
 	end
-
-	
-	def assign (patient_id, exercise_id)
-		p = Patient.find(patient_id)
-		p.exercises << Exercise.find(exercise_id)
-	end
-
-
-
 end
+
+
+
+
+
+
+
+
+
+
+
+

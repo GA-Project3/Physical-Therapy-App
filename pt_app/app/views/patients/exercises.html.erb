@@ -5,18 +5,32 @@
 		<h1><%= @patient.first_name  + " " + @patient.last_name %></h1>
 
 		<% @exercises.each do |exercise| %>
-			<h3><%= exercise.title %></h3>
-			<%= exercise.description %>
-			<img src="<%= exercise.image_url %>" width="200"/>
-
-
-			<div class="row">
-				<% if @patient_exercises.include? (exercise) %>
-					<%= button_to "Remove", {}, :disabled => true %>
-				<% else %>
-					<button>Add</button>
-				<% end %>
+			<div class='col-md-2'>
+			  <img src="<%= exercise.image_url %>" width="80px" alt="exercise image"/>
 			</div>
+
+
+			<!--image/youtube div -->
+		<% if exercise.image_url.include? "youtu" %>
+			<%= embed(exercise.image_url) %> 
+		<% else %>
+			 <img src= "<%= exercise.image_url %>" width="400" height="300" />
 		<% end %>
+
+
+			<div class='col-md-6'>
+			  <h6><%= exercise.title %></h6>
+			  <%= exercise.description %>
+			</div>
+
+			<div class="col-md-4">
+
+					<button class="exercise" id='<%= exercise.id %>'>Remove</button>
+
+			</div>
+			<div class="clearfix"></div>
+			<hr>
+		<% end %>
+
 	</div>
 </div>
