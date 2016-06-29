@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-	before_action :require_login, :except => [:new], :only => [:show]
+	before_action :require_login, :except => [:new, :create]
 	before_action :is_patient, only:[:edit]
 	before_action :patient_profile?, only:[:edit, :show]
 
