@@ -32,8 +32,14 @@
 
       <div>
         <h1>Patients</h1>
-
       </div>
+      <!--  show patients for this doctor -->
+      <% @exercises.each do |patient| %>
+        <h3><%= patient.first_name patient.last_name %></h3>
+        <%= patient.description %>
+        <img src="<%= patient.image_url %>" width="200"/>
+      <% end %>
+
     <% end %>
   </div>
 
