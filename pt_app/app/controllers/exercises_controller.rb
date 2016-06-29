@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+	helper ExercisesHelper
 
 	before_action :require_login
 	before_action :is_doctor, only:[:edit, :new]
