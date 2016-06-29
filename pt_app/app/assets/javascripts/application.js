@@ -24,7 +24,16 @@ $(document).ready(function() {
   $(".exercise").click(function(e){
     e.preventDefault;
     alert( "click handler called for ex:"+this.id );
-    change_button(this);
+    if (this.innerHTML=="Remove") {
+      this.value = "Add";
+      this.removeClass("btn-warning");
+      this.addClass("btn-success");
+    }
+    else {
+      this.value = "Remove";
+      this.removeClass("btn-success");
+      this.addClass("btn-warning");
+    };
     path = window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
     patient = window.location.href.split("/").slice(4,5).toString()
     $.ajax({
@@ -35,16 +44,7 @@ $(document).ready(function() {
     });
 
   function change_button(target){
-      if (target.innerHTML=="Remove") {
-        target.value = "Add";
-        target.removeClass("btn-warning");
-        target.addClass("btn-success");
-      }
-      else {
-        target.value = "Remove";
-        target.removeClass("btn-success");
-        target.addClass("btn-warning");
-      }
+
   }
 
 
