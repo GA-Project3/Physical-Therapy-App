@@ -26,6 +26,13 @@
   </div>
 
 
+
+  <%= f.label :image_url, "Profile Photo:" %>
+  <%= uploadcare_uploader_field :patient, :image_url %>
+
+
+
+
   <%=f.submit "Sign Up" %>
 
   <% end %>

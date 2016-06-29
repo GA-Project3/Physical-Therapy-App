@@ -38,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'uploadcare-rails', "~> 1.0"
 
 #awesome print
 gem 'awesome_print', require: 'ap'
