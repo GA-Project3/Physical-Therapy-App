@@ -29,16 +29,21 @@ $(document).ready(function() {
     $.ajax({
       url: path,
       type: 'GET',
-      data: {ids: {patient_id: patient, exercise_id: this.id}},
-      success: function(){
-        change_button();
-      }
+      data: {ids: {patient_id: patient, exercise_id: this.id}}
+      }).done(change_button(this));
     });
-  });
 
-  function change_button(){
-      if (this.innerHTML=="Remove") this.value = "Add";
-      else this.value = "Remove";
+  function change_button(target){
+      if (target.innerHTML=="Remove") {
+        target.value = "Add";
+        target.removeClass("btn-warning");
+        target.addClass("btn-success");
+      }
+      else {
+        target.value = "Remove";
+        target.removeClass("btn-success");
+        target.addClass("btn-warning");
+      }
   }
 
 

@@ -73,15 +73,14 @@ class PatientsController < ApplicationController
 		p "***************************************************Patient ID:"+patient.id.to_s+" "+exercise.id.to_s
 		if patient.exercises.include?(exercise)
 			p "***************************************************Already exists"
-			patient.exercises << exercise
 			render json: {
-			  error: "No such user; check the submitted email address",
-			  status: 200
-			}, status: 400
-			redirect_to doctor_path
-		else
-			render :status => 412
+			  error: "This exercise already belongs to the patient", 
+			  status: 412 }, status: 412
 			redirect_to patient_exercises_path
+		else
+			patient.exercises << exercise
+			render json: {}, status: 200
+			redirect_to doctor_path
 		end
 	end
 
