@@ -29,9 +29,45 @@ class DoctorsController < ApplicationController
     if @doctor.save
       login(@doctor, 'doctors')
       redirect_to "/doctors/#{@doctor.id}"
-    else 
+    else
       redirect_to '/doctors/new'
     end
   end
 
+  def edit
+
+    @doctor = Doctor.find(params[:id])
+    render :edit
+  end
+
+
+
+  #update patient's profile
+  def update
+    @doctor = Doctor.find(params[:id])
+    @doctor.update_attributes(doctor_params)
+
+
+    if @doctor.update_attributes(doctor_params)
+      redirect_to "/doctors/#{@doctor.id}"
+      flash[:notice] = "Profile Updated!"
+    else
+      flash[:error] = @doctor.errors.full_messages.join("---")
+      render :edit
+    end
+  end
+
+  def doctor_params
+    params.require(:doctor).permit(:first_name, :last_name, :phone, :location, :email, :password, :description)
+  end
 end
+
+
+
+
+
+
+
+
+
+
