@@ -27,6 +27,7 @@ class PatientsController < ApplicationController
 	#individual patient show page
 	def show
 		@patient = Patient.find(params[:id])
+		@exercises = @patient.exercises
 		render :show
 	end
 
@@ -62,6 +63,7 @@ class PatientsController < ApplicationController
 		@exercise = Exercise.find(params[:exercise_id])
 		@patient.exercises << @exercise
 		render status: 200
+	end
 
 	def patient_exercises
 		@patient = Patient.find(params[:id])

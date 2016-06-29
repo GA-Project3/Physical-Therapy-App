@@ -17,6 +17,19 @@
 	List of Exercises:
 </div>
 
+<div class="row">
+
+  <% @exercises.each do |exercise| %>
+  <div class='col-md-1'>
+    <img src="<%= exercise.image_url %>" width="50px"/>
+  </div>
+  <div class='col-md-1'>
+    <h6><%= exercise.title %></h6>
+    <%= exercise.description %>
+  <% end %>
+
+</div>
+
 <div>
 	Your Current Physician:
 	<!-- Doctor.find(Patient.doctor_id) -->
