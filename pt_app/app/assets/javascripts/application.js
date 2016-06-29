@@ -19,21 +19,28 @@
 //= require_tree .
 
 $(document).ready(function() {
-
+console.log("ready")
   $(".exercise").click(function(e){
     e.preventDefault;
+    alert( "click handler called for ex:"+this.id );
+    path = window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
+    patient = window.location.href.split("/").slice(4,5).toString()
     $.ajax({
-      url: window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
+      url: path,
       type: 'GET',
-      data: {ids: {patient_id: this.target.pid,
-                    exercise_id: this.target.id}},
+      data: {ids: {patient_id: patient, exercise_id: this.id}},
       success: function(){
-        $(".exercise").addClass("done");
+        change_button();
       }
     });
-    alert( "Handler for "+ this.id +" called." );
-    
   });
+
+  function change_button(){
+      if (this.innerHTML=="Remove") this.value = "Add";
+      else this.value = "Remove";
+  }
+
+
 });
 
 
