@@ -15,7 +15,7 @@
 
   <div>
     <% if current_user != nil %>
-      <% if current_user.user_t == 'patients' %>
+      <% if current_user.user_t == 'doctor' %>
           <form action='/patients/<%= @patient.id %>/edit' method='get'>
               <button> Edit Profile </button>
           </form>
