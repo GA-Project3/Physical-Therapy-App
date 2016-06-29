@@ -62,4 +62,19 @@ class PatientsController < ApplicationController
 		redirect_to '/'
 	end
 
+
+	def patient_exercises
+		@patient = Patient.find(params[:id])
+		@exercises = Exercise.all
+		@patient_exercises = @patient.exercises
+
+		render :exercises
+	end
+
+	
+	def assign (patient_id, exercise_id)
+		p = Patient.find(patient_id)
+		p.exercises << Exercise.find(exercise_id)
+	end
+
 end

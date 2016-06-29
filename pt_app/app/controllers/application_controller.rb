@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
     end
   end
   
-
   def is_patient
     if current_user.user_t == 'patients'
     else
@@ -39,6 +38,7 @@ class ApplicationController < ActionController::Base
       redirect_to "/doctors/#{current_user.id}"
     end
   end
+
 
 end
   
