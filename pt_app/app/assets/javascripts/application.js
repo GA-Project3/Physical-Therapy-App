@@ -19,7 +19,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-console.log("ready")
+  
   $(".exercise").click(function(e){
     e.preventDefault;
     alert( "click handler called for ex:"+this.id );
