@@ -1,6 +1,9 @@
 class PatientsController < ApplicationController
 
-	# before_action :require_login
+	before_action :require_login, :except => [:new], :only => [:show]
+	before_action :is_patient, only:[:edit]
+	before_action :patient_profile?, only:[:edit, :show]
+
 
 	#patients index
 	def index
@@ -18,6 +21,8 @@ class PatientsController < ApplicationController
 		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
 		@patient = Patient.new(patient_params)
 		if @patient.save
+			# binding.pry
+			login(@patient, 'patients')
 			redirect_to "/patients/#{@patient.id}"
 		else 
 			redirect_to '/patients/new'
@@ -33,6 +38,7 @@ class PatientsController < ApplicationController
 
 	#edit individual patient's profile page
 	def edit
+		
 		@patient = Patient.find(params[:id])
 		render :edit
 	end
