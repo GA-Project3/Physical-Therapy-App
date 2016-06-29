@@ -1,33 +1,22 @@
-<br>
-<br>
-<div class="container-fluid">
-  <h3><%= @doctor.first_name %>'s Profile</h3>
+<!-- Doctor information -->
+<div class='col-md-2'><img class = 'image' src="<%= @doctor.image_url %>" alt="image for doctor" width='150px'></div>
+<div class='col-md-10'>
+  <div><h2><%= @doctor.first_name + " " + @doctor.last_name %></h2></div>
+  <div><b>Email:</b> <%= @doctor.email %></div>
+  <div><b>Phone:</b> <%= @doctor.phone %></div>
+  <div><b>Location:</b> <%= @doctor.location %></div>
+  <div><b>Bio:</b> <%= @doctor.description %></div>
+  <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
+</div>
+<div class="clearfix"></div>
 
-  <div>
-    <strong>Name: </strong><%= @doctor.first_name %> <%= @doctor.last_name %>
-  </div>
 
-  <div>
-    <b>Email:</b> <%= @doctor.email %>
-  </div>
 
-  <div>
-    <b>Location:</b> <%= @doctor.location %>
-  </div>
-
-  <div>
-    <b>Bio:</b> <%= @doctor.description %>
-  </div>
-
-  <div>
-    <b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %>
-  </div>
-  <br>
 
   <div>
     <% if current_user != nil %>
-      <% if current_user.user_t == 'doctors' %>
-          <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
+      <% if current_user.user_t == 'patients' %>
+          <form action='/patients/<%= @patient.id %>/edit' method='get'>
               <button> Edit Profile </button>
           </form>
         <%end%>
@@ -35,8 +24,8 @@
       <div>
         <h1>Patients</h1>
       </div>
-      <!--  show patients for this doctor -->
-      <% @patients.each do |patient| %>
+      <!--  show doco for this doctor -->
+
         <div class='col-md-1'>
           <img src="<%= patient.image_url %>" width="80px" alt="patient image"/>
         </div>
@@ -52,7 +41,7 @@
 
 
 
-    <% end %>
+
   </div>
 
 
@@ -68,5 +57,4 @@
 
 </div>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
- -->
+
