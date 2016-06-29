@@ -29,11 +29,13 @@
   </div>
 
 
-
+<form method="post">
   <%= f.label :image_url, "Profile Photo:" %>
-  <%= uploadcare_uploader_field :patient, :image_url %>
-
-
+  <div>
+      <%= f.hidden_field :image_url, role: "uploadcare-uploader" %>
+  </div>
+  <input type="submit" value="Save">
+</form>
 
 
   <%=f.submit "Sign Up" %>

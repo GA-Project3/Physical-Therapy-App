@@ -10,6 +10,16 @@
 			<div class='col-md-2'>
 			  <img src="<%= exercise.image_url %>" width="80px" alt="exercise image"/>
 			</div>
+
+
+			<!--image/youtube div -->
+		<% if exercise.image_url.include? "youtu" %>
+			<%= embed(exercise.image_url) %> 
+		<% else %>
+			 <img src= "<%= exercise.image_url %>" width="400" height="300" />
+		<% end %>
+
+
 			<div class='col-md-6'>
 			  <h6><%= exercise.title %></h6>
 			  <%= exercise.description %>

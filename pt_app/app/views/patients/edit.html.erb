@@ -19,6 +19,9 @@ Email
 Picture
 <%= f.text_field :image_url %>
 <br>
+  <div>
+      <%= f.hidden_field :image_url, role: "uploadcare-uploader" %>
+  </div>
 
 Phone Number
 <div>
