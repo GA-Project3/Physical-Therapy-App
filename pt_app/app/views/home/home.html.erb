@@ -15,8 +15,10 @@
           <img class="first-slide" src="/med4.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+
+              <h1>Welcome to Digital Therapy.</h1>
+              <p>Sign up as a doctor or patient, fill out your respective profile, and you will be allowed to take the actions appropriate for your role.</p>
+               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-primary" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
 
             </div>
           </div>
@@ -25,9 +27,9 @@
           <img class="second-slide" src="/med1.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1>Quick and easy sign up.</h1>
+              <p>This application will allow the management of physical therapy exercises by doctors and patients. It allows doctors to assign exercises to patients, and it allows patients to pick a doctor that they feel most confortable with.</p>
+               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-primary" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
             </div>
           </div>
         </div>
@@ -35,9 +37,9 @@
           <img class="third-slide" src="/med2.jpeg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <h1>Get started today!</h1>
+              <p>Click the appropriate "Sign up" button below, and get started today!</p>
+               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-primary" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
             </div>
           </div>
         </div>
@@ -53,7 +55,7 @@
       </a>
     </div><!-- /.carousel -->
 <div class="button-wrapper">
-          <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-primary" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
+
         </div>
     <%else%>
     <%if current_user.user_t == 'doctors' || 'patients' %>
@@ -70,7 +72,7 @@
             <img class="first-slide" src="/med4.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Example headline.</h1>
+                <h1>Welcome to Digital Therapy</h1>
                 <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
 
               </div>
@@ -80,7 +82,7 @@
             <img class="second-slide" src="/med1.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Another example headline.</h1>
+                <h1>Welcome to Digital Therapy</h1>
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
               </div>
@@ -90,7 +92,7 @@
             <img class="third-slide" src="/med2.jpeg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>One more for good measure.</h1>
+                <h1>Welcome to Digital Therapy</h1>
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
               </div>
