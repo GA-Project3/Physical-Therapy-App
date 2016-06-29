@@ -56,4 +56,24 @@ class PatientsController < ApplicationController
 		redirect_to '/'
 	end
 
+	#special route to assign or unassign exercise to patient
+	def assign_exercise
+		@patient = Patient.find(params[:patient_id])
+		@exercise = Exercise.find(params[:exercise_id])
+		@patient.exercises << @exercise
+		render status: 200
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
