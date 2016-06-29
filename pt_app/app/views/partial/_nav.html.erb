@@ -7,14 +7,17 @@
     <ul class>
       <% if current_user != nil %>
           <%if current_user.user_t == 'doctors' %>
+              <li><%= link_to "Exercises", '/exercises' %></li>
               <li><%= link_to "Patients", '/patients', :class => "btn btn-primary" %></li>
               <li><%= link_to "Profile", doctor_path(current_user), :class => "btn btn-primary"%></li>
               <%else%>
+              <li><%= link_to "Exercises", '/exercises', :class=>'btn btn-primary' %></li>
               <li><%= link_to "Doctors", '/doctors', :class => "btn btn-primary" %></li>
               <li><%= link_to "Profile", patient_path(current_user), :class => "btn btn-primary"%></li>
               <%end%>
 
         <li><%= link_to "Logout", '/sessions', method: :delete, :class => "btn btn-primary" %></li>
+
       <% else %>
 
         <li><%= link_to "Login", '/signin', :class => "btn btn-primary" %></li>
