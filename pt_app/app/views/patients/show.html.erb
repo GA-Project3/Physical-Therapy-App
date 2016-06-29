@@ -1,4 +1,4 @@
-<img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" >
+<div><img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" ></div>
 <li><%= @patient.first_name + " " + @patient.last_name %></li>
 <li>Email: <%= @patient.email %></li>
 <li>Phone Number: <%= @patient.phone %></li>
@@ -22,6 +22,6 @@
 
 <div>
 	Your Current Physician:
-	<!-- Doctor.find(Patient.doctor_id) -->
+	<%=@doctor.first_name + " " + @doctor.last_name%>
 </div>
 

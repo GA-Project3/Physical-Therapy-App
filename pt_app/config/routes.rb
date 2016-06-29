@@ -32,9 +32,10 @@ Rails.application.routes.draw do
 	get '/patients/:id/exercises', to: 'patients#patient_exercises', as: 'patient_exercises'
 
 	##patient selects physician during sign up##
-	get '/patients/:id/select_physician', to: 'patients#select_physician'
+	get '/patients/:id/physician_list', to: 'patients#physician_list'
+
 	#associate patient-id with doctor-id'
-	post '/patients/:id/select_physician', to: 'patients#select'
+	post '/patients/:id/physician_list', to: 'patients#select_physician', as: "select_physician_patient"
 
 	##resources/rails created routes##
 	resources :doctors, :patients, :exercises

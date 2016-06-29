@@ -22,30 +22,40 @@ class PatientsController < ApplicationController
 		@patient = Patient.new(patient_params)
 		if @patient.save
 			login(@patient, 'patients')
-			redirect_to "/patients/#{@patient.id}/select_physician"
+			redirect_to "/patients/#{@patient.id}/physician_list"
 		else 
 			redirect_to '/patients/new'
 		end
 	end
 
 	#select physician during signup#
-	def select_physician
+	def physician_list
 		@doctors = Doctor.all
 		render :select_physician
 	end
 
-	def select
+	def select_physician
+		p params
+		patient = Patient.find(params[:id])
+		doctor_id = params[:doctor_id]
+		patient.doctor_id = doctor_id
+		if patient.save
+			redirect_to "/patients/#{patient.id}"
+		else
+			redirect_to "/patients/#{patient.id}/physician_list"
+		end
+
 	end
 
 	#individual patient show page
 	def show
 		@patient = Patient.find(params[:id])
+		@doctor = Doctor.find(@patient.doctor_id)
 		render :show
 	end
 
 	#edit individual patient's profile page
 	def edit
-		
 		@patient = Patient.find(params[:id])
 		render :edit
 	end
