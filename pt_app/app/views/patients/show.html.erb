@@ -1,15 +1,4 @@
 
-<br>
-<br>
-<br>
-<div class="container-fluid">
-<img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" >
-<li><%= @patient.first_name + " " + @patient.last_name %></li>
-<li>Email: <%= @patient.email %></li>
-<li>Phone Number: <%= @patient.phone %></li>
-<li>Address: <%= @patient.location %></li>
-<li>Diagnosis <%= @patient_diagnosis %></li>
-
 <!-- patient information -->
 <div class='col-md-2'><img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" width='150px'></div>
 <div class='col-md-10'>
@@ -22,7 +11,6 @@
 </div>
 <div class="clearfix"></div>
   <br>
-
 
 <div>
 <% if current_user != nil %>
@@ -48,9 +36,10 @@
   <div class="clearfix"></div>
 
 <div>
-  <h4>List of Exercises</h4>
+
   <!-- add Edit button to change exercises if Doctor -->
   <% if current_user != nil %>
+  <h4>List of Exercises</h4>
   <% if current_user.user_t == 'doctors' %>
     <div class = "button">
       <%= link_to "Edit", patient_exercises_path %>
