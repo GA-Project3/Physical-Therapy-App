@@ -1,3 +1,6 @@
+  <br>
+  <br>
+  <div class="container-fluid">
 
   <h1>Sign Up</h1>
 
@@ -13,12 +16,12 @@
 
     <div>
       <%= f.text_field :email, placeholder: "Email" %>
-      
+
 
 
   <div>
     <%= f.password_field :password, placeholder: "Password" %>
-    
+
   </div>
 
   <div>
@@ -31,11 +34,12 @@
   <div>
       <%= f.hidden_field :image_url, role: "uploadcare-uploader" %>
   </div>
-  <input type="submit" value="Save">
+  <input type="submit" value="Upload Picture">
 </form>
 
 
   <%=f.submit "Pick Your Physician" %>
 
   <% end %>
+</div>
 </div>

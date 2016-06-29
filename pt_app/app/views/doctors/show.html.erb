@@ -1,4 +1,6 @@
-<div class="container">
+<br>
+<br>
+<div class="container-fluid">
   <h3><%= @doctor.first_name %>'s Profile</h3>
 
   <div>
@@ -28,8 +30,6 @@
           <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
               <button> Edit Profile </button>
           </form>
-        <%end%>
-
       <div>
         <h1>Patients</h1>
       </div>
@@ -45,10 +45,9 @@
         <div class="clearfix"></div>
         <hr>
       <% end %>
+        <%end%>
+
     <!-- end of patient list -->
-
-
-
 
     <% end %>
   </div>

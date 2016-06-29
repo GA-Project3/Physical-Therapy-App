@@ -23,12 +23,13 @@ body {
 }
 
 nav {
-    position: fixed;
+    position: relative;
     z-index: 1;
     background: white;
     width: 100vw;
-    height: 30px;
+    height: 3.7em;
     top: 0;
+    // margin-bottom: 90px;
 }
 
 
