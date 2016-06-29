@@ -24,13 +24,14 @@ $(document).ready(function() {
   $(".exercise").click(function(e){
     e.preventDefault;
     alert( "click handler called for ex:"+this.id );
+    change_button(this);
     path = window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
     patient = window.location.href.split("/").slice(4,5).toString()
     $.ajax({
       url: path,
       type: 'GET',
       data: {ids: {patient_id: patient, exercise_id: this.id}}
-      }).done(change_button(this));
+      });
     });
 
   function change_button(target){
