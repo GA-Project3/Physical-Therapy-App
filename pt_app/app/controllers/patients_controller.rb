@@ -18,6 +18,8 @@ class PatientsController < ApplicationController
 		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
 		@patient = Patient.new(patient_params)
 		if @patient.save
+			# binding.pry
+			login(@patient, 'patients')
 			redirect_to "/patients/#{@patient.id}"
 		else 
 			redirect_to '/patients/new'

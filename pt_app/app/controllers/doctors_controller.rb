@@ -19,23 +19,14 @@ class DoctorsController < ApplicationController
 
   #doctors create new profiles
   def create
+    doctor_params = params.require(:doctor).permit(:first_name, :last_name, :email, :password, :description)
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      flash[:notice] = "Hello, #{@doctor.first_name}!"
-      login(@doctor)
+      login(@doctor, 'doctors')
       redirect_to "/doctors/#{@doctor.id}"
-    else
-      flash[:error] = @doctor.errors.full_messages.join("-----")
-      redirect_to new_doctor_path
+    else 
+      redirect_to '/doctors/new'
     end
   end
-
-    def doctor_params
-
-
-    params.require(:doctor).permit(:first_name, :last_name, :email, :email_confirmation, :location, :password_digest, :description, :image_url)
-
-  end
-
 
 end
