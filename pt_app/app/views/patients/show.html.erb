@@ -1,3 +1,7 @@
+<br>
+<br>
+<br>
+<div class="container-fluid">
 <img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" >
 <li><%= @patient.first_name + " " + @patient.last_name %></li>
 <li>Email: <%= @patient.email %></li>
@@ -6,10 +10,22 @@
 <li>Diagnosis <%= @patient_diagnosis %></li>
 
 <div>
+<% if current_user != nil %>
+	<% if current_user.user_t == 'patients' %>
+		<div class = "button">
+			<%= link_to "Edit Profile", edit_patient_path %>
+		</div>
+		<%else%>
+	<%end%>
+	<%end%>
+</div>
+
+<div>
 	List of Exercises:
 </div>
 
 <div>
 	Your Current Physician:
+	<!-- Doctor.find(Patient.doctor_id) -->
 </div>
-
+</div>

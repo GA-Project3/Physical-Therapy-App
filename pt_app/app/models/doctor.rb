@@ -1,16 +1,20 @@
 class Doctor < ActiveRecord::Base
 	attr_accessor :user_t
 
-  has_many :patients
+	validates :email, presence: true, uniqueness:true, confirmation: true
+	validates :first_name, presence: true
+	validates :last_name, presence: true
 
-  def self.confirm(params)
-  	@doctor = Doctor.find_by({email: params[:email]})
-  	@doctor.try(:authenticate, params[:password])
-  end
+	has_many :patients
 
-  def confirm_email
-  end
+	def self.confirm(params)
+		@doctor = Doctor.find_by({email: params[:email]})
+		@doctor.try(:authenticate, params[:password])
+	end
 
-  has_secure_password
+	def confirm_email
+	end
+
+	has_secure_password
 
 end

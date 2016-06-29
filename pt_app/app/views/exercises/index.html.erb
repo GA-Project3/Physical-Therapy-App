@@ -1,8 +1,12 @@
 <!-- exercise index page -->
-
+<br>
+<br>
+<br>
 <div class="container-fluid">
 
 	<div class="row">
+		<% if current_user != nil %>
+		<% if current_user.user_t == 'doctors' %>
 
 
 		<div class = "button">
@@ -10,29 +14,47 @@
 		</div>
 
 
+		<button type="button" class="btn btn-primary">Default</button>
+
+
+		<% end %>
+		<%end%>
+
 		<% @exercises.each do |exercise| %>
 
-			<h1><%= exercise.title %></h1>
 
-			<img src= "<%= exercise.image_url %>" /><br>
+			<h1><%= link_to exercise.title, exercise_path(exercise) %></h1>
+
+			<img src= "<%= exercise.image_url %>" width="400" height="300" /><br>
 
 			Body Part: <%= exercise.body_part %> <br>
 			Description: <%= exercise.description %>
-			
+
+
+			<% if current_user != nil %>
+			<% if current_user.user_t == 'doctors' %>
+
+
 			<div class = "button">
 				<%= link_to "Edit Exercise", edit_path(exercise.id) %>
 			</div>
 
 			<div class = "button">
-				<%= link_to "Delete Exercise", edit_path(exercise.id) %>
+				<%= link_to "Delete Exercise", delete_path(exercise.id) %>
 			</div>
 
-			<div class = "button">
-			<%= button_to "Add New Exercise", new_exercise_path %>
-			</div>
-
-
+			<%end%>
+			<% end %>
 	</div>
+<% end %>
+
+<% if current_user != nil %>
+<% if current_user.user_t == 'doctors' %>
+
+	<div class = "button">
+		<%= button_to "Add New Exercise", new_exercise_path %>
+	</div>
+<%end%>
 <% end %>
 
 </div>

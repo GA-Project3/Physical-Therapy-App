@@ -1,14 +1,17 @@
+<br>
+<br>
+<div class="container-fluid">
 Edit Your Profile
 
 <%= form_for @patient do |f| %>
 
-Patient Name 
+Patient Name
 <div>
   <%= f.text_field :first_name, value: @patient.first_name %>
     <%= f.text_field :last_name, value: @patient.last_name %>
 </div>
 
-Email  
+Email
 <div>
   <%= f.text_field :email, value: @patient.email %>
 </div>
@@ -19,7 +22,7 @@ Picture
 
 Phone Number
 <div>
-  <%= f.text_field :phone_number, value: @patient.phone_number %>
+  <%= f.text_field :phone_number, value: @patient.phone %>
 </div>
 
 Location
@@ -29,5 +32,5 @@ Location
 
 <%= f.submit "Save Profile" %>
 <% end %>
-
+</div>
 

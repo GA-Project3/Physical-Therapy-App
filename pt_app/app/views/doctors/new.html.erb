@@ -1,34 +1,42 @@
-  <div class="container">
-  <%= form_for :doctor do |f| %>
+  <br>
+  <br>
+  <div class="container-fluid">
+  <h1>Physician Sign Up Page </h1>
+
+
+  <%= form_for @doctor, url: doctors_path(@doctor) do |f| %>
 
   <!-- <div>
    <%#= f.file_field :avatar %>
   </div> -->
   <div>
 
-  <%= f.text_field :first_name, placeholder: "First Name" %> <%= f.text_field :last_name, placeholder: "Last Name" %>
+  <%= f.text_field :first_name, placeholder: "First Name" %>
   </div>
   <div>
-  <%= f.text_field :email, placeholder: "Email" %> <%= f.text_field :confirm_email, placeholder: "Confirm Email" %>
+  <%= f.text_field :last_name, placeholder: "Last Name" %>
+  </div>
+  <div>
+  <%= f.text_field :email, placeholder: "Email" %>
   </div>
   <div>
     <%= f.text_field :location, placeholder: "Location" %>
   </div>
   <div>
-    <%= f.password_field :password, placeholder: "Password" %> <%= f.password_field :confirm_password, placeholder: "Confirm Password" %>
+    <%= f.password_field :password, placeholder: "Password" %>
   </div>
 
   <div>
     <%= f.text_field :description, placeholder: "Education, degrees, and specialty" %>
   </div>
 
+  <%= f.label :image_url, "Profile Photo:" %>
+   <%= uploadcare_uploader_field :doctor, :image_url %>
+
   <br>
   <%= f.submit "Sign up" %>
 
   <br>
-
-
-
 
   <% end %>
 

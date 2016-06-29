@@ -1,13 +1,15 @@
-<div class="container">
+<br>
+<br>
+<div class="container-fluid">
   <h3><%= @doctor.first_name %>'s Profile</h3>
 
-
-  <!-- <%#= image_tag(@doctor.avatar) %> -->
   <div>
     <strong>Name: </strong><%= @doctor.first_name %> <%= @doctor.last_name %>
   </div>
 
-
+  <div>
+    <b>Email:</b> <%= @doctor.email %>
+  </div>
 
   <div>
     <b>Location:</b> <%= @doctor.location %>
@@ -23,10 +25,36 @@
   <br>
 
   <div>
-    <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
-            <button> Edit Profile </button>
-    </form>
+    <% if current_user != nil %>
+      <% if current_user.user_t == 'doctors' %>
+          <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
+              <button> Edit Profile </button>
+          </form>
+        <%end%>
+
+      <div>
+        <h1>Patients</h1>
+      </div>
+      <!--  show patients for this doctor -->
+      <% @patients.each do |patient| %>
+        <div class='col-md-1'>
+          <img src="<%= patient.image_url %>" width="80px" alt="patient image"/>
+        </div>
+        <div class='col-md-11'>
+          <h4><a href="/patients/<%=patient.id%>"><%= patient.first_name%>  <%= patient.last_name%></a></h4>
+          <%= patient.diagnosis %>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+      <% end %>
+    <!-- end of patient list -->
+
+
+
+
+    <% end %>
   </div>
+
 
 <!-- <div>
  <b>Recent Posts:</b><br>
