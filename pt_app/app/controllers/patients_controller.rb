@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-	before_action :require_login, :except => [:new, :create, :select_physician]
+	before_action :require_login, :except => [:new, :create]
 	before_action :is_patient, only:[:edit]
 	before_action :patient_profile?, only:[:edit, :show]
 
@@ -21,30 +21,12 @@ class PatientsController < ApplicationController
 		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
 		@patient = Patient.new(patient_params)
 		if @patient.save
+			# binding.pry
 			login(@patient, 'patients')
-			redirect_to "/patients/#{@patient.id}/physician_list"
+			redirect_to "/patients/#{@patient.id}"
 		else 
 			redirect_to '/patients/new'
 		end
-	end
-
-	#select physician during signup#
-	def physician_list
-		@doctors = Doctor.all
-		render :select_physician
-	end
-
-	def select_physician
-		p params
-		patient = Patient.find(params[:id])
-		doctor_id = params[:doctor_id]
-		patient.doctor_id = doctor_id
-		if patient.save
-			redirect_to "/patients/#{patient.id}"
-		else
-			redirect_to "/patients/#{patient.id}/physician_list"
-		end
-
 	end
 
 	#individual patient show page
@@ -57,6 +39,7 @@ class PatientsController < ApplicationController
 
 	#edit individual patient's profile page
 	def edit
+		
 		@patient = Patient.find(params[:id])
 		render :edit
 	end
@@ -91,7 +74,10 @@ class PatientsController < ApplicationController
 		if patient.exercises.include?(exercise)
 			p "***************************************************Already exists"
 			patient.exercises << exercise
-			render :status => 200
+			render json: {
+			  error: "No such user; check the submitted email address",
+			  status: 200
+			}, status: 400
 			redirect_to doctor_path
 		else
 			render :status => 412
@@ -106,6 +92,7 @@ class PatientsController < ApplicationController
 
 		render :exercises
 	end
+
 end
 
 
