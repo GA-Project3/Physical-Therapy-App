@@ -9,10 +9,13 @@
           <%if current_user.user_t == 'doctors' %>
               <li><%= link_to "Patients", '/patients' %></li>
               <li><%= link_to "Profile", doctor_path(current_user)%></li>
+              <li><%= link_to "Exercises", '/exercises' %></li>
               <%else%>
               <li><%= link_to "Doctors", '/doctors' %></li>
               <li><%= link_to "Profile", patient_path(current_user)%></li>
+              <li><%= link_to "Exercises", '/exercises' %></li>
               <%end%>
+
 
         <li><%= link_to "Logout", '/sessions', method: :delete %></li>
       <% else %>
