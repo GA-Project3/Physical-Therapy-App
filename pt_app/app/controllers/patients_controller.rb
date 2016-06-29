@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-	before_action :require_login, :except => [:new, :create]
+	before_action :require_login, :except => [:new, :create, :select_physician]
 	before_action :is_patient, only:[:edit]
 	before_action :patient_profile?, only:[:edit, :show]
 
@@ -21,12 +21,20 @@ class PatientsController < ApplicationController
 		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
 		@patient = Patient.new(patient_params)
 		if @patient.save
-			# binding.pry
 			login(@patient, 'patients')
-			redirect_to "/patients/#{@patient.id}"
+			redirect_to "/patients/#{@patient.id}/select_physician"
 		else 
 			redirect_to '/patients/new'
 		end
+	end
+
+	#select physician during signup#
+	def select_physician
+		@doctors = Doctor.all
+		render :select_physician
+	end
+
+	def select
 	end
 
 	#individual patient show page
@@ -76,5 +84,7 @@ class PatientsController < ApplicationController
 		p = Patient.find(patient_id)
 		p.exercises << Exercise.find(exercise_id)
 	end
+
+
 
 end
