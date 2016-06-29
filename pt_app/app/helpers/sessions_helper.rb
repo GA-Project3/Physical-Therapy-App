@@ -3,7 +3,6 @@ module SessionsHelper
   def login(user, user_t)
     session[:user_id] = user.id
     session[:user_t] = user_t
-  
   end
 
   def user_type
