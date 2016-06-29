@@ -5,29 +5,40 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  # private
+  private
 
-  # def user 
-  #   @user = Doctor.find_by_email(user[:email])
-  #   if @user != nil
-  #     @user = Doctor.confirm(user)
-  #     @user_t = "doctors"
-  #   else
-  #     @user = Patient.confirm(user)
-  #     @user_t = "patients"
-  #   end
-  # end
+  def require_login
+    if !current_user
+      redirect_to '/'
+    end
+  end
 
-  # def admin_user 
-  #   @admin_user = User.find_by(first_name:"Admin",last_name:"User")
-  # end
+  def is_doctor
+    if current_user.user_t == 'doctors'
+    else
+      redirect_to '/'
+    end
+  end
+  
+  def is_patient
+    if current_user.user_t == 'patients'
+    else
+      redirect_to '/'
+    end
+  end
 
-  # def require_login
-  #   if !current_user
-  #     redirect_to '/signin'
-  #   end
-  # end
+  def patient_profile?
+    if current_user.id.to_s != params[:id]
+      redirect_to "/patients/#{current_user.id}"
+    end
+  end
 
-  # helper_method :current_user
+  def doctor_profile?
+    if current_user.id.to_s != params[:id]
+      redirect_to "/doctors/#{current_user.id}"
+    end
+  end
+
 
 end
+  

@@ -1,13 +1,13 @@
 <div class="container">
   <h3><%= @doctor.first_name %>'s Profile</h3>
 
-
-  <!-- <%#= image_tag(@doctor.avatar) %> -->
   <div>
     <strong>Name: </strong><%= @doctor.first_name %> <%= @doctor.last_name %>
   </div>
 
-
+  <div>
+    <b>Email:</b> <%= @doctor.email %>
+  </div>
 
   <div>
     <b>Location:</b> <%= @doctor.location %>
@@ -23,10 +23,20 @@
   <br>
 
   <div>
-    <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
-            <button> Edit Profile </button>
-    </form>
+    <% if current_user != nil %>
+      <% if current_user.user_t == 'doctors' %>
+          <form action='/doctors/<%= @doctor.id %>/edit' method='get'>
+              <button> Edit Profile </button>
+          </form>
+        <%end%>
+
+      <div>
+        <h1>Patients</h1>
+
+      </div>
+    <% end %>
   </div>
+
 
 <!-- <div>
  <b>Recent Posts:</b><br>
