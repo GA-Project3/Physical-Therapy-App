@@ -84,7 +84,7 @@ class PatientsController < ApplicationController
 
 	#special route to assign or unassign exercise to patient
 	def assign_exercise
-		patient_id = params['ids'][:patient_id]
+		patient_id = params[:id]
 		exercise_id = params['ids'][:exercise_id]
 		patient = Patient.find(patient_id)
 		exercise = Exercise.find(exercise_id)
@@ -94,11 +94,10 @@ class PatientsController < ApplicationController
 			render json: {
 			  error: "This exercise already belongs to the patient", 
 			  status: 412 }, status: 412
-			redirect_to patient_exercises_path
 		else
 			patient.exercises << exercise
+			patient.save
 			render json: {}, status: 200
-			redirect_to doctor_path
 		end
 	end
 
