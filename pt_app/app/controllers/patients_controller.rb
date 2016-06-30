@@ -88,9 +88,7 @@ class PatientsController < ApplicationController
 		exercise_id = params['ids'][:exercise_id]
 		patient = Patient.find(patient_id)
 		exercise = Exercise.find(exercise_id)
-		p "***************************************************Patient ID:"+patient.id.to_s+" "+exercise.id.to_s
 		if patient.exercises.include?(exercise)
-			p "***************************************************Already exists"
 			render json: {
 			  error: "This exercise already belongs to the patient", 
 			  status: 412 }, status: 412
@@ -98,6 +96,22 @@ class PatientsController < ApplicationController
 			patient.exercises << exercise
 			patient.save
 			render json: {}, status: 200
+		end
+	end
+
+	def remove_exercise
+		patient_id = params[:id]
+		exercise_id = params['ids'][:exercise_id]
+		patient = Patient.find(patient_id)
+		exercise = Exercise.find(exercise_id)
+		if patient.exercises.include?(exercise)
+			patient.exercises.delete(exercise)
+			patient.save
+			render json: {}, status: 200
+		else
+			render json: {
+			  error: "This exercise already is absent from the patient", 
+			  status: 412 }, status: 412
 		end
 	end
 

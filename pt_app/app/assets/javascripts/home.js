@@ -3,22 +3,24 @@ $(document).ready(function() {
   
   $(".exercise").click(function(e){
     e.preventDefault();
+    if (this.innerHTML == 'Remove') var action = 'remove'
+    if (this.innerHTML == 'Add') var action = 'assign'
+    sendData(this,action);
     switchAddRemove(this);
-    sendData(this);
     e.stopPropagation();
     return false;
     });
 
 });
 
-function sendData(target){
-  path = window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
+function sendData(target,action){
+  path = window.location.href.split("/").slice(0,5).join("/")+"/"+action+"_exercise"
   $.ajax({
-  url: path,
-  type: 'POST',
-  data: {ids: {exercise_id: target.id}},
-  headers: {
-   'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    url: path,
+    type: 'POST',
+    data: {ids: {exercise_id: target.id}},
+    headers: {
+     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   },
   });
 }
