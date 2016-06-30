@@ -65,7 +65,7 @@ class PatientsController < ApplicationController
 	#update patient's profile
 	def update
 		@patient = Patient.find(params[:id])
-		patient_params = params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description)
+		patient_params = params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description, :image_url)
 
 		if @patient.update_attributes(patient_params)
 			redirect_to "/patients/#{@patient.id}"
@@ -84,21 +84,34 @@ class PatientsController < ApplicationController
 
 	#special route to assign or unassign exercise to patient
 	def assign_exercise
-		patient_id = params['ids'][:patient_id]
+		patient_id = params[:id]
 		exercise_id = params['ids'][:exercise_id]
 		patient = Patient.find(patient_id)
 		exercise = Exercise.find(exercise_id)
-		p "***************************************************Patient ID:"+patient.id.to_s+" "+exercise.id.to_s
 		if patient.exercises.include?(exercise)
-			p "***************************************************Already exists"
 			render json: {
 			  error: "This exercise already belongs to the patient", 
 			  status: 412 }, status: 412
-			redirect_to patient_exercises_path
 		else
 			patient.exercises << exercise
+			patient.save
 			render json: {}, status: 200
-			redirect_to doctor_path
+		end
+	end
+
+	def remove_exercise
+		patient_id = params[:id]
+		exercise_id = params['ids'][:exercise_id]
+		patient = Patient.find(patient_id)
+		exercise = Exercise.find(exercise_id)
+		if patient.exercises.include?(exercise)
+			patient.exercises.delete(exercise)
+			patient.save
+			render json: {}, status: 200
+		else
+			render json: {
+			  error: "This exercise already is absent from the patient", 
+			  status: 412 }, status: 412
 		end
 	end
 
