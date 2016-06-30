@@ -27,6 +27,14 @@ Rails.application.routes.draw do
 
 	delete '/exercises/:id', to: 'exercises#destroy', as: 'delete'
 
+	get '/patients/:id/edit', to: 'patients#edit'
+
+	patch '/patients/:id/edit', to: 'patients#update'
+
+	put '/patients/:id/edit', to: 'patients#update'
+
+
+
 	# custom route to enable assigning an exercise to a patient
 	get '/patients/:id/assign_exercise', to: 'patients#assign_exercise'
 
