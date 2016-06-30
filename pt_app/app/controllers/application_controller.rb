@@ -28,8 +28,10 @@ class ApplicationController < ActionController::Base
   end
 
   def patient_profile?
-    if current_user.id.to_s != params[:id]
-      redirect_to "/patients/#{current_user.id}"
+    if current_user.user_t == 'patients'
+      if current_user.id.to_s != params[:id]
+        redirect_to "/patients/#{current_user.id}"
+      end
     end
   end
 

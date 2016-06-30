@@ -52,7 +52,6 @@ class PatientsController < ApplicationController
 		@patient = Patient.find(params[:id])
 		@exercises = @patient.exercises
 		@doctor = @patient.doctor
-		render :show
 	end
 
 	#edit individual patient's profile page
