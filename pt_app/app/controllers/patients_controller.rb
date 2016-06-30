@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
 
 	#create a new patient
 	def create
-		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
+		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description, :diagnosis)
 		@patient = Patient.new(patient_params)
 		if @patient.save
 			# binding.pry
@@ -68,6 +68,7 @@ class PatientsController < ApplicationController
 
 
 		if @patient.update_attributes(patient_params)
+			flash[:success] = "Updated!"
 			redirect_to "/patients/#{@patient.id}"
 		else
 			render :edit
@@ -76,7 +77,7 @@ class PatientsController < ApplicationController
 	end
 
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description, :image_url)
+    params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description, :image_url, :diagnosis)
   end
 	#delete patient's profile
 	def destroy

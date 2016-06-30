@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log("sanity check")
   
-  $(".exercise").click(function(e){
+  $(".edit-exercise").click(function(e){
     e.preventDefault();
     if (this.innerHTML == 'Remove') var action = 'remove'
     if (this.innerHTML == 'Add') var action = 'assign'
