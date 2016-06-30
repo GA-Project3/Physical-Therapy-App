@@ -13,10 +13,6 @@
 			<%= button_to "Add New Exercise", new_exercise_path %>
 		</div>
 
-
-		<button type="button" class="btn btn-primary">Default</button>
-
-
 		<% end %>
 		<%end%>
 
@@ -31,12 +27,13 @@
 			<% else %>
 				<img src= "<%= exercise.image_url %>" width="400" height="300" /><br>
 				<% end %>
+	
 
-
-
-			Body Part: <%= exercise.body_part %> <br>
-			Description: <%= exercise.description %>
-
+			<div class="row-fluid">
+				<div class="span8 offset4">
+				Body Part: <%= exercise.body_part %> <br>
+				Description: <%= exercise.description %>
+				</div>
 
 			<% if current_user != nil %>
 			<% if current_user.user_t == 'doctors' %>
@@ -64,6 +61,6 @@
 	</div>
 <%end%>
 <% end %>
-
-</div>
+			</div>
+		</div>
 
