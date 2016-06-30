@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-	before_action :require_login, :except => [:new, :create, :select_physician]
+	before_action :require_login, :except => [:new, :create]
 	before_action :is_patient, only:[:edit]
 	before_action :patient_profile?, only:[:edit, :show]
 
@@ -21,12 +21,14 @@ class PatientsController < ApplicationController
 		patient_params = params.require(:patient).permit(:first_name, :last_name, :email, :password, :description)
 		@patient = Patient.new(patient_params)
 		if @patient.save
+			# binding.pry
 			login(@patient, 'patients')
 			redirect_to "/patients/#{@patient.id}/physician_list"
 		else 
 			redirect_to '/patients/new'
 		end
 	end
+
 
 	#select physician during signup#
 	def physician_list
@@ -55,6 +57,7 @@ class PatientsController < ApplicationController
 
 	#edit individual patient's profile page
 	def edit
+		
 		@patient = Patient.find(params[:id])
 		render :edit
 	end
@@ -85,8 +88,18 @@ class PatientsController < ApplicationController
 		exercise_id = params['ids'][:exercise_id]
 		patient = Patient.find(patient_id)
 		exercise = Exercise.find(exercise_id)
-		patient.exercises << exercise
-		render :status => 200
+		p "***************************************************Patient ID:"+patient.id.to_s+" "+exercise.id.to_s
+		if patient.exercises.include?(exercise)
+			p "***************************************************Already exists"
+			render json: {
+			  error: "This exercise already belongs to the patient", 
+			  status: 412 }, status: 412
+			redirect_to patient_exercises_path
+		else
+			patient.exercises << exercise
+			render json: {}, status: 200
+			redirect_to doctor_path
+		end
 	end
 
 	def patient_exercises
@@ -96,6 +109,7 @@ class PatientsController < ApplicationController
 
 		render :exercises
 	end
+
 end
 
 

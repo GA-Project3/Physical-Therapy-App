@@ -23,8 +23,9 @@
 	<%end%>
 </div>
 
+<%if @doctor %>
 <div>
-	<h4>Your Current Physician</h4>
+  <h4>Your Current Physician</h4>
 </div>
   <div class='col-md-1'>
     <img src="<%= @doctor.image_url %>" width="80px" alt="@doctor image"/>
@@ -34,7 +35,11 @@
     <%= @doctor.description %>
   </div>
   <div class="clearfix"></div>
-
+<% else %>
+<div>
+  <h4>No Current Physician</h4>
+</div>
+<% end %>
 <div>
 
   <!-- add Edit button to change exercises if Doctor -->
