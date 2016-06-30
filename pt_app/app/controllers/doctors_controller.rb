@@ -18,8 +18,6 @@ class DoctorsController < ApplicationController
 	#individual doctor show page/doctor profile page
 	def show
 		@doctor = Doctor.find(params[:id])
-    @patients = @doctor.patients
-    @patient = Patient.find(params[:id])
 		render :show
 	end
 

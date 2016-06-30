@@ -44,7 +44,7 @@
     <img src="<%= @doctor.image_url %>" width="80px" alt="@doctor image"/>
   </div>
   <div class='col-md-6'>
-    <h6><%= @doctor.first_name %> <%= @doctor.last_name %></h6>
+    <h6><%= link_to @doctor.first_name + " " + @doctor.last_name, doctor_path(@doctor)%></h6>
     <%= @doctor.description %>
   </div>
   <div class="clearfix"></div>

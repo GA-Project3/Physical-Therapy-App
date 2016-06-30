@@ -43,32 +43,54 @@
         </div>
 
       <% end %>
+
+<!-- sb check -->
+
+  <div class="doc_title">
+    <h1><strong> Dr. <%= @doctor.first_name + " " + @doctor.last_name %> </strong></h1>
+
   </div>
 
-  <h1>Patients</h1>
+  <!-- Doctor information -->
+  <div class='col-md-2'><img class = 'image' src="<%= @doctor.image_url %>" alt="image for doctor" width='150px'></div>
+  <div class='col-md-4'>
+    <div><h2><%= @doctor.first_name + " " + @doctor.last_name %></h2></div>
+    <div><b>Email:</b> <%= @doctor.email %></div>
+    <div><b>Phone:</b> <%= @doctor.phone %></div>
+    <div><b>Location:</b> <%= @doctor.location %></div>
+    <div><b>Bio:</b> <%= @doctor.description %></div>
+    <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
+  </div>
+  <div class="clearfix"></div>
 
-      <!--  show doco for this doctor -->
+  <div>
+  <!--  show doco for this doctor -->
+  <% if current_user != nil %>
+    <% if current_user.user_t == 'doctors' %>
+      <div class= "edit_button">
+        <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
+          <button> Edit Profile </button>
+        </form>
+      </div>
 
-        <div class='col-md-2'>
-          <img src="<%= @patient.image_url %>" width="80px" alt="patient image"/>
-        </div>
-        <div class='col-md-4'>
-          <h4><a href="/patients/<%= @patient.id %>"><%= @patient.first_name%>  <%= @patient.last_name %></a></h4>
-          <%= @patient.diagnosis %>
+      <%unless @doctor.patients.empty? %>
+        <h1>Patients <%= @doctor.patients.count%></h1>
+          <% @doctor.patients.each do |patient| %>
+            <div class='col-md-1'>
+              <img src="<%= patient.image_url %>" width="80px" alt="patient image"/>
+            </div>
+            <div class='col-md-4'>
+              <h4><a href="/patients/<%= patient.id %>"><%= patient.first_name%>  <%= patient.last_name %></a></h4>
+              <%= patient.diagnosis %>
+              <% end %>
+            <% end %>
         </div>
         <div class="clearfix"></div>
-        <hr>
-      <% end %>
-
-
-
-
-
-
-    <!-- end of patient list -->
-
-
-  </div>
+        </div>
+    <% end %>
+<% end %>
+  <!-- end of patient list -->
+</div>
 
 
 
