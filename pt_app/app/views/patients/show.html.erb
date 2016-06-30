@@ -19,7 +19,7 @@
   <br>
 
 <div class="row">
-  <div class="exercise">
+  <div class="patient">
 <div>
 <% if current_user != nil %>
 	<% if current_user.user_t == 'patients' %>
@@ -34,12 +34,12 @@
 </div>
 
 <div class="row">
-  <div class="exercise">
+  <div class="patient">
 
 <%if @doctor %>
-<div>
+
   <h4>Your Current Physician</h4>
-</div>
+
   <div class='col-md-1'>
     <img src="<%= @doctor.image_url %>" width="80px" alt="@doctor image"/>
   </div>
@@ -57,7 +57,7 @@
 
 
 <div class="row">
-  <div class="exercise">
+  <div class="patient">
   <!-- add Edit button to change exercises if Doctor -->
   <% if current_user != nil %>
   <h4>List of Exercises</h4>
