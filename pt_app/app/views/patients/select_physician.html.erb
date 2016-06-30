@@ -2,7 +2,16 @@
 
 <% @doctors.each do |doctor| %>
   
-    <%= link_to doctor.first_name, doctor_path(doctor) %> </br>
+    <div class='col-md-2'><img class = 'image' src="<%= doctor.image_url %>" alt="image for doctor" width='150px'></div>
+    <div class='col-md-4'>
+      <div><h2><%= link_to doctor.first_name + " " + doctor.last_name, doctor_path(doctor) %></h2></div>
+      <div><b>Email:</b> <%=doctor.email %></div>
+      <div><b>Phone:</b> <%=doctor.phone %></div>
+      <div><b>Location:</b> <%=doctor.location %></div>
+      <div><b>Bio:</b> <%=doctor.description %></div>
+      <div><b>Member Since:</b> <%=doctor.created_at.strftime("%b %d, %Y") %></div>
+    </div>
     <%= button_to "Add", select_physician_patient_path, params: {doctor_id: doctor.id}  %>
+    <div class="clearfix"></div>
   
 <% end %>

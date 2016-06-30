@@ -39,7 +39,8 @@ class PatientsController < ApplicationController
 	def select_physician
 		patient = Patient.find(params[:id])
 		doctor_id = params[:doctor_id]
-		patient.doctor_id = doctor_id
+		doctor = Doctor.find(doctor_id)
+		patient.doctor = doctor
 		if patient.save
 			redirect_to "/patients/#{patient.id}"
 		else
