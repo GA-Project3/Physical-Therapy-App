@@ -18,30 +18,4 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).ready(function() {
-  
-  $(".exercise").click(function(e){
-    e.preventDefault;
-    alert( "click handler called for ex:"+this.id );
-    path = window.location.href.split("/").slice(0,5).join("/")+"/assign_exercise"
-    patient = window.location.href.split("/").slice(4,5).toString()
-    $.ajax({
-      url: path,
-      type: 'GET',
-      data: {ids: {patient_id: patient, exercise_id: this.id}},
-      success: function(){
-        change_button();
-      }
-    });
-  });
-
-  function change_button(){
-      if (this.innerHTML=="Remove") this.value = "Add";
-      else this.value = "Remove";
-  }
-
-
-});
-
-
 

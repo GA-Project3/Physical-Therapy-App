@@ -7,7 +7,13 @@
 	<h1><%= @exercise.title %></h1>
 </div>
 
-	<img src= "<%= @exercise.image_url %>" width="400" height="300" /><br>
+<!--image/youtube div -->
+	<% if @exercise.image_url.include? "youtu" %>
+		<%= embed(@exercise.image_url) %> 
+	<% else %>
+		 <img src= "<%= @exercise.image_url %>" width="400" height="300" />
+	<% end %>
+
 	<p><%= @exercise.description %></p><br></div>
 
 <% if current_user.user_t == 'doctors' %>
