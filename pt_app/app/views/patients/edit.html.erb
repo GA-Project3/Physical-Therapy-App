@@ -3,7 +3,7 @@
 <div class="container-fluid">
 Edit Your Profile
 
-<%= form_for @patient do |f| %>
+<%= form_for @patient, url: patient_path(@patient), method: :patch do |f| %>
 
 Patient Name
 <div>
@@ -17,11 +17,11 @@ Email
 </div>
 
 Picture
-<%= f.text_field :image_url %>
-<br>
   <div>
       <%= f.hidden_field :image_url, role: "uploadcare-uploader" %>
   </div>
+<!--   <input type="submit" value="Upload Picture"> -->
+
 
 Phone Number
 <div>

@@ -65,7 +65,7 @@ class PatientsController < ApplicationController
 	#update patient's profile
 	def update
 		@patient = Patient.find(params[:id])
-		patient_params = params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description)
+		patient_params = params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description, :image_url)
 
 		if @patient.update_attributes(patient_params)
 			redirect_to "/patients/#{@patient.id}"
