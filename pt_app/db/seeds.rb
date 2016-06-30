@@ -51,7 +51,7 @@ end
 exercises = Exercise.create([
   {title:"Outward Rotation (neutral)",body_part:"arm",
     description:"Bend the elbow of your affected arm.  Place a folded towel between that elbow and your side. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    image_url:"https://youtu.be/BJbkZ5RBIM8"},
+    image_url:"https://www.youtube.com/embed/BJbkZ5RBIM8"},
   {title:"Heal slides",body_part:"leg",
     description:"In a sitting or lying position, bend your knee as far as possible sliding your heel up. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with.",
     image_url:"https://youtu.be/qr4HvF9y5xU?t=11s"},
