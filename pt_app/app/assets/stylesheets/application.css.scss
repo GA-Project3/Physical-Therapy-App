@@ -80,8 +80,12 @@ li {
 }
 
 .exercise {
-  background-color: white;
+
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
+
 
 
 .container-fluid {
@@ -100,6 +104,15 @@ li {
   text-align: center;
 }
 
+.head {
+  color: red;
+  font-size: 3em;
+}
+
+.doctor {
+  margin: 0 auto;
+  background-color: yellow;
+}
 
 
 }

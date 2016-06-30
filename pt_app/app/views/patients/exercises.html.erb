@@ -6,35 +6,35 @@
 
 	<div class="row">
 
-		<h1><%= @patient.first_name  + " " + @patient.last_name %></h1>
+		<h1 style="font-size: 3.5em"><%= @patient.first_name  + " " + @patient.last_name + "'s Exercises" %></h1><hr><br><br>
+	</div>
 
-
-	<div class="exercise">
+	<div class="row">
+		<div class="exercise">
 		<% @exercises.each do |exercise| %>
-			<div class='col-md-2'>
 			<!--image/youtube div -->
 		<% if exercise.image_url.include? "youtu" %>
 			<%= embed(exercise.image_url) %> 
 		<% else %>
 			 <img src= "<%= exercise.image_url %>" width="400" height="300" />
-		<% end %>
-		</div>
+		<% end %><br>
 
 
-			<div class='col-md-6'>
-			  <h6><%= exercise.title %></h6>
-			  <%= exercise.description %>
-			</div>
 
-			<div class="col-md-4">
-			<% if @patient.exercises.include?(exercise) %>
-				<button class="exercise btn" id='<%= exercise.id %>'>Remove</button>
-			<% else %>
-				<button class="exercise btn" id='<%= exercise.id %>'>Add</button>
+			  <h3><strong>Exercise:</strong></h3><h4><%= exercise.title %></h4>
+			  <h3><strong>How To:</strong></h3><h4><%= exercise.description %></h4>
+		
+	<div class="row">
+		<div class="exercise">
+		<% if @patient.exercises.include?(exercise) %>
+				<button class="btn btn-danger" id='<%= exercise.id %>'>Remove</button>
+		<% else %>
+				<button class="btn btn-info" id='<%= exercise.id %>'>Add</button>
 			<% end %>
+		</div>
+	</div>
 
-			</div>
-			<div class="clearfix"></div>
+	<div class="clearfix"></div>
 			<hr>
 		<% end %>
 
