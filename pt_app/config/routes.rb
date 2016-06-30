@@ -27,11 +27,20 @@ Rails.application.routes.draw do
 
 	delete '/exercises/:id', to: 'exercises#destroy', as: 'delete'
 
+
+	#uploadcare routes
+
 	get '/patients/:id/edit', to: 'patients#edit'
 
 	patch '/patients/:id/edit', to: 'patients#update'
 
 	put '/patients/:id/edit', to: 'patients#update'
+
+	get '/exercises/:id/edit', to: 'exercises#edit'
+
+	patch '/exercises/:id/edit', to: 'exercises#update'
+
+	put '/exercises/:id/edit', to: 'exercises#update'
 
 
 

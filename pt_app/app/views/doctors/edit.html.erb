@@ -4,11 +4,9 @@
   <div class="container-fluid">
   <h1>Edit Profile</h1>
   <br>
-  <%= form_for @doctor do |f| %>
 
-  <!-- <div>
-   <%#= f.file_field :avatar %>
-  </div> -->
+  <%= form_for @doctor, url: doctor_path(@doctor), method: :patch do |f| %>
+
   <div>
 
   <%= f.text_field :first_name, placeholder: "First Name" %> <%= f.text_field :last_name, placeholder: "Last Name" %>
@@ -19,6 +17,7 @@
   <div>
     <%= f.text_field :location, placeholder: "Location" %>
   </div>
+
   <div>
     <%= f.password_field :password, placeholder: "Password" %> <%= f.password_field :confirm_password, placeholder: "Confirm Password" %>
   </div>
@@ -27,10 +26,12 @@
     <%= f.text_field :description, placeholder: "Education, degrees, and specialty" %>
   </div>
 
-  <br>
+  <div>
+      <%= f.hidden_field :image_url, role: "uploadcare-uploader" %>
+  </div>
+
   <%= f.submit "Update Profile" %>
 
-  <br>
 
   <% end %>
 
