@@ -8,7 +8,7 @@ Edit Your Profile
 Patient Name
 <div>
   <%= f.text_field :first_name, value: @patient.first_name %>
-    <%= f.text_field :last_name, value: @patient.last_name %>
+  <%= f.text_field :last_name, value: @patient.last_name %>
 </div>
 
 Email
@@ -20,18 +20,19 @@ Picture
   <div>
       <%= f.hidden_field :image_url, role: "uploadcare-uploader" %>
   </div>
-<!--   <input type="submit" value="Upload Picture"> -->
+  <input type="submit" value="Upload Picture">
 
 
 Phone Number
 <div>
-  <%= f.text_field :phone_number, value: @patient.phone %>
+  <%= f.text_field :phone, value: @patient.phone %>
 </div>
 
 Location
 <div>
-	<%= f.text_area :location %>
+	<%= f.text_field :location, value: @patient.location %>
 </div>
+
 
 <%= f.submit "Save Profile" %>
 <% end %>

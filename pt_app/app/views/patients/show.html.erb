@@ -1,5 +1,9 @@
 
 <!-- patient information -->
+<div class="container">
+
+<div class="row">
+  <div class="exercise">
 <div class='col-md-2'><img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" width='150px'></div>
 <div class='col-md-10'>
   <div><h2><%= @patient.first_name + " " + @patient.last_name %></h2></div>
@@ -10,8 +14,12 @@
   <div><b>Patient Since:</b> <%= @patient.created_at.strftime("%b %d, %Y") %></div>
 </div>
 <div class="clearfix"></div>
+</div>
+</div>
   <br>
 
+<div class="row">
+  <div class="exercise">
 <div>
 <% if current_user != nil %>
 	<% if current_user.user_t == 'patients' %>
@@ -22,6 +30,11 @@
 	<%end%>
 	<%end%>
 </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="exercise">
 
 <%if @doctor %>
 <div>
@@ -31,7 +44,7 @@
     <img src="<%= @doctor.image_url %>" width="80px" alt="@doctor image"/>
   </div>
   <div class='col-md-6'>
-    <h6><%= @doctor.first_name %> <%= @doctor.last_name %></h6>
+    <h6><%= link_to @doctor.first_name + " " + @doctor.last_name, doctor_path(@doctor)%></h6>
     <%= @doctor.description %>
   </div>
   <div class="clearfix"></div>
@@ -42,6 +55,9 @@
 <% end %>
 <div>
 
+
+<div class="row">
+  <div class="exercise">
   <!-- add Edit button to change exercises if Doctor -->
   <% if current_user != nil %>
   <h4>List of Exercises</h4>
@@ -55,8 +71,9 @@
 </div>
 
 </div>
-
+</div>
 <% @exercises.each do |exercise| %>
+<div class="row">
   <div class='col-md-1'>
       <!--image/youtube div -->
     <% if exercise.image_url.include? "youtu" %>
@@ -65,12 +82,17 @@
        <img src= "<%= exercise.image_url %>" width="80px" />
     <% end %>
   </div>
+</div>
+<div class="row">
   <div class='col-md-6'>
     <h6><%= exercise.title %></h6>
     <%= exercise.description %>
   </div>
+</div>
   <div class="clearfix"></div>
   <hr>
 <% end %>
+</div>
+</div>
 
 

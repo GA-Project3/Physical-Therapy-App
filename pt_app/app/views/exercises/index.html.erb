@@ -1,39 +1,42 @@
 <!-- exercise index page -->
-<br>
-<br>
-<br>
+
 <div class="container-fluid">
+	<div class="head">
+		<h1>Your Exercises</h1>
+	</div>
 
 	<div class="row">
 		<% if current_user != nil %>
 		<% if current_user.user_t == 'doctors' %>
-
-
 		<div class = "button">
 			<%= button_to "Add New Exercise", new_exercise_path %>
 		</div>
-
 		<% end %>
 		<%end%>
+	</div>
 
-<div class="exercise">
+<div class="row">
+	<div class="exercise">
 		<% @exercises.each do |exercise| %>
-
+		<div class="exercise">
 			<h1><%= link_to exercise.title, exercise_path(exercise) %></h1>
 
 			<% if exercise.image_url.include? "youtu" %>
 						<%= embed(exercise.image_url) %> 
-
 			<% else %>
 				<img src= "<%= exercise.image_url %>" width="400" height="300" /><br>
-				<% end %>
-	
-
-			<div class="row-fluid">
-				<div class="span8 offset4">
-				Body Part: <%= exercise.body_part %> <br>
-				Description: <%= exercise.description %>
-				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+	<div class="row">
+		<div class="exercise">
+				<h4><strong>Body Part:</strong></h4><h5> <%= exercise.body_part %></h5> 
+				<h4><strong>How To:</strong></h4><h5> <%= exercise.description %></h5>
+		</div>
+	</div>
+		<div class="row">
+		<div class="exercise">
 
 			<% if current_user != nil %>
 			<% if current_user.user_t == 'doctors' %>
@@ -49,9 +52,14 @@
 
 			<%end%>
 			<% end %>
+			</div>
+			</div>
 	</div>
 <% end %>
 </div>
+
+<div class="row">
+	<div class="exercise">
 
 <% if current_user != nil %>
 <% if current_user.user_t == 'doctors' %>
@@ -63,4 +71,6 @@
 <% end %>
 			</div>
 		</div>
+	</div>
+	</
 
