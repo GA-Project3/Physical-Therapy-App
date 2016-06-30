@@ -60,7 +60,7 @@ private
 
 def exercise_params
 
-    params.permit(:exercise, :title, :description, :body_part, :image_url)
+    params.require(:exercise).permit(:title, :description, :body_part, :image_url)
 
   end
 
