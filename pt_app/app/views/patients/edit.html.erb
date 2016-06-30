@@ -33,6 +33,9 @@ Location
 	<%= f.text_field :location, value: @patient.location %>
 </div>
 
+Diagnosis
+ <div><%=@patient.diagnosis%></div>
+
 
 <%= f.submit "Save Profile" %>
 <% end %>
