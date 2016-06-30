@@ -12,7 +12,7 @@
 		<h1><%= link_to @patient.first_name  + " " + @patient.last_name, patient_path(@patient) %></h1>
 
 	<div class="row">
-		<div class="exercise">
+		<div class="patient">
 		<% @exercises.each do |exercise| %>
 			<!--image/youtube div -->
 		<% if exercise.image_url.include? "youtu" %>
@@ -27,7 +27,7 @@
 			  <h3><strong>How To:</strong></h3><h4><%= exercise.description %></h4>
 		
 	<div class="row">
-		<div class="exercise">
+		<div class="patient">
 		<% if @patient.exercises.include?(exercise) %>
 				<button class="btn btn-danger" id='<%= exercise.id %>'>Remove</button>
 		<% else %>
