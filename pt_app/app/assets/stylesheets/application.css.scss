@@ -130,9 +130,6 @@ div.box {
 }
 
 
-.about {
-  text-align: center;
-}
 
 .head {
   color: red;
@@ -150,8 +147,38 @@ div.box {
   text-align: center;
 }
 
-#homepage {
-  margin-top: 0px;
+
+.about img {
+  height: 200px;
+  width: 200px;
+  position: relative;
 }
 
+
+.span5 {
+  vertical-align: middle;
+  display: table-cell;
+
+}
+
+.span5 h2, h4 {
+  text-align: center;
+}
+
+.span5 img {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+
+
+}
+
+.span5 p {
+  position: relative;
+  display: inline-block;
+  padding: 12px;
+
+}
 

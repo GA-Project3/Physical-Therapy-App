@@ -12,9 +12,6 @@ class Doctor < ActiveRecord::Base
 		@doctor.try(:authenticate, params[:password])
 	end
 
-	def confirm_email
-	end
-
 	has_secure_password
 
 end

@@ -1,59 +1,122 @@
-<div class="container-fluid">
+<!-- patient information -->
+<div class="container">
+
+<div class="row">
+<div class='col-md-2'><img class = 'image' src="<%= @patient.image_url %>" alt="image for patient" width='150px'></div>
+<div class='col-md-10'>
+  <div><h2><%= @patient.first_name + " " + @patient.last_name %></h2></div>
+  <div><b>Email:</b> <%= @patient.email %></div>
+  <div><b>Phone:</b> <%= @patient.phone %></div>
+  <div><b>Location:</b> <%= @patient.location %></div>
+  <div><b>Patient Since:</b> <%= @patient.created_at.strftime("%b %d, %Y") %></div>
+  <br>
 
 
 
-<div class="doc_title">
-  <h1><strong> Dr. <%= @doctor.first_name + " " + @doctor.last_name %> </strong></h1>
-</div>
-<!-- Doctor information -->
-<div class='col-md-2'><img class = 'image' src="<%= @patient.image_url %>" alt="image for doctor" width='150px'></div>
-<div class='col-md-4'>
-  <div><h2><%= @doctor.first_name + " " + @doctor.last_name %></h2></div>
-  <div><b>Email:</b> <%= @doctor.email %></div>
-  <div><b>Phone:</b> <%= @doctor.phone %></div>
-  <div><b>Location:</b> <%= @doctor.location %></div>
-  <div><b>Bio:</b> <%= @doctor.description %></div>
-  <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
+    <div>
+      <%if current_user != nil %>
+        <%if current_user.id == @patient.doctor_id %>
+        <%= form_for @patient, url: patient_path(@patient), method: :patch do |f| %>
+        <div><b>Ailment: </b>
+          <%= f.text_field :diagnosis, placeholder: @patient.diagnosis, value: @patient.diagnosis %>
+                </div>
+          <% end %>
+          <%else%>
+          <div><b>Ailment: </b><%=@patient.diagnosis%></div>
+            <% flash.each do |key, value| %>
+                  <div class="<%= flash_class(key) %>" style = "color: #888;">
+                        <%= value %>
+                  </div>
+            <% end %>
+        <%end%>
+      <%end%>
+
+
+    </div>
 </div>
 <div class="clearfix"></div>
+</div>
+  <br>
 
-   <div>
-     <% if current_user != nil %>
-      <% if current_user.user_t == 'doctors' %>
-        <div class= "edit_button">
-          <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
-              <button> Edit Profile </button>
-          </form>
-        </div>
-      <% end %>
+<div class="row">
+  <div class="patient">
+<div>
+<% if current_user != nil %>
+  <% if current_user.user_t == 'patients' %>
+    <div class = "button">
+      <%= link_to "Edit Profile", edit_patient_path %>
+    </div>
+    <%else%>
+  <%end%>
+  <%end%>
+</div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="patient">
+
+<%if @doctor %>
+
+  <h4>Your Current Physician</h4>
+
+  <div class='col-md-1'>
+    <img src="<%= @doctor.image_url %>" width="80px" alt="doctor image"/>
+  </div>
+  <div class='col-md-6'>
+    <h6><%= link_to @doctor.first_name + " " + @doctor.last_name, doctor_path(@doctor)%></h6>
+    <%= @doctor.description %>
   </div>
 
-  <h1>Patients</h1>
-
-      <!--  show doco for this doctor -->
-
-        <div class='col-md-2'>
-          <img src="<%= @patient.image_url %>" width="80px" alt="patient image"/>
-        </div>
-        <div class='col-md-4'>
-          <h4><a href="/patients/<%= @patient.id %>"><%= @patient.first_name%>  <%= @patient.last_name %></a></h4>
-          <%= @patient.diagnosis %>
-        </div>
-        <div class="clearfix"></div>
-        <hr>
-      <% end %>
-
-
-
-
-
-
-    <!-- end of patient list -->
-
-
+  <div class='col-md-1'>
+    <%= link_to "Change Physician", physician_list_path %>
   </div>
 
+  <div class="clearfix"></div>
+<% else %>
+<div>
+  <h4>No Current Physician</h4>
+</div>
+<% end %>
+<div>
 
 
+<div class="row">
+  <div class="patient">
+  <!-- add Edit button to change exercises if Doctor -->
+  <% if current_user != nil %>
+  <h4>List of Exercises</h4>
+  <% if current_user.user_t == 'doctors' %>
+    <div class = "button">
+      <%= link_to "Edit", patient_exercises_path %>
+    </div>
+    <%else%>
+  <%end%>
+  <%end%>
+</div>
 
-
+</div>
+</div>
+<% @exercises.each do |exercise| %>
+<div class="row">
+  <div class='col-md-1'>
+      <!--image/youtube div -->
+    <% if exercise.image_url.include? "youtu" %>
+      <%= embed(exercise.image_url) %>
+    <% else %>
+       <img src= "<%= exercise.image_url %>" width="80px" alt="doctor image"/>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-6'>
+    <h6><%= exercise.title %></h6>
+    <%= exercise.description %>
+  </div>
+</div>
+  <div class="clearfix"></div>
+  <hr>
+<% end %>
+</div>
+</div>
