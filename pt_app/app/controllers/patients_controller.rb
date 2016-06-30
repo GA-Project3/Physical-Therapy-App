@@ -10,7 +10,7 @@ class PatientsController < ApplicationController
 		@patients= Patient.all
 		render :index
 	end
-	
+
 	def new
 		@patient = Patient.new
 		render :new
@@ -24,7 +24,7 @@ class PatientsController < ApplicationController
 			# binding.pry
 			login(@patient, 'patients')
 			redirect_to "/patients/#{@patient.id}/physician_list"
-		else 
+		else
 			redirect_to '/patients/new'
 		end
 	end
@@ -56,15 +56,15 @@ class PatientsController < ApplicationController
 
 	#edit individual patient's profile page
 	def edit
-		
-		@patient = Patient.find(params[:id])
+    @patient = Patient.find(params[:id])
 		render :edit
 	end
 
 	#update patient's profile
 	def update
 		@patient = Patient.find(params[:id])
-		patient_params = params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description, :image_url)
+    @patient.update_attributes(patient_params)
+
 
 		if @patient.update_attributes(patient_params)
 			redirect_to "/patients/#{@patient.id}"
@@ -74,6 +74,9 @@ class PatientsController < ApplicationController
 
 	end
 
+  def patient_params
+    params.require(:patient).permit(:first_name, :last_name, :phone, :location, :email, :password, :description, :image_url)
+  end
 	#delete patient's profile
 	def destroy
 		@patient = Patient.find(params[:id])
@@ -89,7 +92,7 @@ class PatientsController < ApplicationController
 		exercise = Exercise.find(exercise_id)
 		if patient.exercises.include?(exercise)
 			render json: {
-			  error: "This exercise already belongs to the patient", 
+			  error: "This exercise already belongs to the patient",
 			  status: 412 }, status: 412
 		else
 			patient.exercises << exercise
@@ -109,7 +112,7 @@ class PatientsController < ApplicationController
 			render json: {}, status: 200
 		else
 			render json: {
-			  error: "This exercise already is absent from the patient", 
+			  error: "This exercise already is absent from the patient",
 			  status: 412 }, status: 412
 		end
 	end
