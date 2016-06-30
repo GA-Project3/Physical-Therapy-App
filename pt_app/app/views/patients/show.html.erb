@@ -58,7 +58,12 @@
 
 <% @exercises.each do |exercise| %>
   <div class='col-md-1'>
-    <img src="<%= exercise.image_url %>" width="80px" alt="exercise image"/>
+      <!--image/youtube div -->
+    <% if exercise.image_url.include? "youtu" %>
+      <%= embed(exercise.image_url) %> 
+    <% else %>
+       <img src= "<%= exercise.image_url %>" width="80px" />
+    <% end %>
   </div>
   <div class='col-md-6'>
     <h6><%= exercise.title %></h6>
