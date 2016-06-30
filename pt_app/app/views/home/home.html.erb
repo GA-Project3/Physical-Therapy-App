@@ -15,11 +15,14 @@
           <img class="first-slide" src="/med4.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
+              <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-success" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary num2" %>
 
               <h1>Welcome to Digital Therapy.</h1>
-              <p>Sign up as a doctor or patient, fill out your respective profile, and you will be allowed to take the actions appropriate for your role.</p>
-               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-success" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
-
+                <div class="container2">
+                  <div class="box">
+              <p class="home-font">Sign up as a doctor or patient, fill out your respective profile, and you will be allowed to take the actions appropriate for your role.</p>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -27,9 +30,15 @@
           <img class="second-slide" src="/med1.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
+               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-success" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary num2" %>
               <h1>Quick and easy sign up.</h1>
-              <p>This application will allow the management of physical therapy exercises by doctors and patients. It allows doctors to assign exercises to patients, and it allows patients to pick a doctor that they feel most confortable with.</p>
-               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-success" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
+              <div class="container2">
+                <div class="box">
+
+               <p class="home-font">This application will allow the management of physical therapy exercises by doctors and patients. It allows doctors to assign exercises to patients, and it allows patients to pick a doctor that they feel most confortable with.</p>
+                 </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -37,9 +46,13 @@
           <img class="third-slide" src="/med2.jpeg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
+               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-success" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary num2" %>
               <h1>Get started today!</h1>
-              <p>Click the appropriate "Sign up" button below, and get started today!</p>
-               <%= link_to 'Physician SignUp', new_doctor_path(@doctor), :class => "btn btn-success" %> <%= link_to 'Patient SignUp', new_patient_path(@patient), :class => "btn btn-primary" %>
+              <div class="container2">
+                <div class="box">
+              <p class="home-font">Click the appropriate "Sign up" button below, and get started today!</p>
+                </div>
+               </div>
             </div>
           </div>
         </div>
