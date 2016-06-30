@@ -19,12 +19,13 @@ class DoctorsController < ApplicationController
 	def show
 		@doctor = Doctor.find(params[:id])
     @patients = @doctor.patients
+    @patient = Patient.find(params[:id])
 		render :show
 	end
 
   #doctors create new profiles
   def create
-    doctor_params = params.require(:doctor).permit(:first_name, :last_name, :email, :password, :description)
+    doctor_params = params.require(:doctor).permit(:first_name, :last_name, :email, :password, :description, :image_url)
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
       login(@doctor, 'doctors')
