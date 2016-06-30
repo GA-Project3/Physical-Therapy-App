@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
 	# custom route to enable assigning an exercise to a patient
 	post '/patients/:id/assign_exercise', to: 'patients#assign_exercise'
+	post '/patients/:id/remove_exercise', to: 'patients#remove_exercise'
 
 	# nested route to enable a list of exercises attributed to patient, separate from exercises index page
 	get '/patients/:id/exercises', to: 'patients#patient_exercises', as: 'patient_exercises'
@@ -48,6 +49,6 @@ Rails.application.routes.draw do
 	post '/patients/:id/physician_list', to: 'patients#select_physician', as: "select_physician_patient"
 
 	##resources/rails created routes##
-	resources :doctors, :patients, :exercises
+	resources :patients, :doctors, :exercises
 
 end

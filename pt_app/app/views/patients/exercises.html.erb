@@ -28,9 +28,9 @@
 
 			<div class="col-md-4">
 			<% if @patient.exercises.include?(exercise) %>
-				<button class="exercise btn btn-warning" id='<%= exercise.id %>'>Remove</button>
+				<button class="exercise btn" id='<%= exercise.id %>'>Remove</button>
 			<% else %>
-				<button class="exercise btn btn-success" id='<%= exercise.id %>'>Add</button>
+				<button class="exercise btn" id='<%= exercise.id %>'>Add</button>
 			<% end %>
 
 			</div>
