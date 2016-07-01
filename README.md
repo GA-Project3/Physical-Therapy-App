@@ -18,7 +18,7 @@ The physician will be able to log in/sign up, to view the patient profile, assig
 We'll have three models: patients,  doctors and exercises. The patient and exercises are connected by a joint table
 
 ##Technologies Used
-* Upload-Care / PaperClip
+* Upload-Care
 * Validation, Authorization, Authentication
 * JS/Jquery for front-end
 * AJAX
