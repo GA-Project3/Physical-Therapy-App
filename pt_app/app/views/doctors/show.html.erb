@@ -28,16 +28,14 @@
       <% end %>
       <% end %>
    <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
+      <div class="<%= flash_class(key) %>" style="color:#888">
         <%= value %>
       </div>
     <% end %>
 
       <% if current_user != nil %>
        <% if current_user.user_t == 'doctors' %>
- <!--      <div class= "edit_button"> -->
           <%= button_to "Edit Profile", edit_doctor_path, :method => :get %>
-<!--       </div> -->
     </div>
 </div>
 <!-- <div class="clearfix"></div> -->

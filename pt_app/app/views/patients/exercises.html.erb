@@ -29,7 +29,7 @@
 	<div class="row">
 		<div class="patient">
 		<% if @patient.exercises.include?(exercise) %>
-				<button class="edit-exercise btn btn-danger" id='<%= exercise.id %>'>Remove</button>
+				<button class="edit-exercise btn btn-warning" id='<%= exercise.id %>'>Remove</button>
 		<% else %>
 				<button class="edit-exercise btn btn-info" id='<%= exercise.id %>'>Add</button>
 			<% end %>
