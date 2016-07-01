@@ -36,11 +36,11 @@ Rails.application.routes.draw do
 
 	put '/patients/:id/edit', to: 'patients#update'
 
-	get '/exercises/:id/edit', to: 'exercises#edit'
+	# get '/exercises/:id/edit', to: 'exercises#edit'
 
-	patch '/exercises/:id/edit', to: 'exercises#update'
+	# patch '/exercises/:id/edit', to: 'exercises#update'
 
-	put '/exercises/:id/edit', to: 'exercises#update'
+	# put '/exercises/:id/edit', to: 'exercises#update'
 
 
 
@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
 	##resources/rails created routes##
 	resources :patients, :doctors 
-	resources :exercises, only: [:index, :update]
+	# resources :exercises, only: [:index, :update, :create, :new, :edit]
+	resources :exercises
 
 end

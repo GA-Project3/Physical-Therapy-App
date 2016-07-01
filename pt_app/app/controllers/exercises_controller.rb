@@ -31,8 +31,10 @@ class ExercisesController < ApplicationController
 		# exercise_params = params.require(:exercise),permit(:title, :description, :image_url)
 		@exercise = Exercise.new(exercise_params)
 		if @exercise.save
+			flash[:success] = "Created!"
 			redirect_to "/exercises/#{@exercise.id}"
 		else
+			flash[:error] = @exercise.errors.full_messages.join("---")
 			redirect_to "/exercises/new"
 		end
 	end
@@ -47,6 +49,7 @@ class ExercisesController < ApplicationController
 			flash[:success] = "Updated!"
 			redirect_to "/exercises/#{@exercise.id}"
 		else
+			flash[:error] = @exercise.errors.full_messages.join("---")
 			render :edit
 		end
 	end
@@ -58,6 +61,7 @@ class ExercisesController < ApplicationController
 			@exercise.save
 		end
 		@exercise.destroy
+		flash[:success] = "Updated!"
 		redirect_to '/exercises'
 	end
 

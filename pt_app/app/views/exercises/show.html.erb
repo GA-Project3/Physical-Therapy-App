@@ -8,13 +8,18 @@
 </div>
 
 <!--image/youtube div -->
-	<% if @exercise.image_url.include? "youtu" %>
-		<%= embed(@exercise.image_url) %> 
-	<% else %>
-		 <img src= "<%= @exercise.image_url %>" width="400" height="300" />
-	<% end %>
+<% if @exercise.image_url.include? "youtu" %>
+	<%= embed(@exercise.image_url) %> 
+<% else %>
+	 <img src= "<%= @exercise.image_url %>" width="400" height="300" />
+<% end %>
 
-	<p><%= @exercise.description %></p><br></div>
+<p><%= @exercise.description %></p><br></div>
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
 
 <% if current_user.user_t == 'doctors' %>
 	<div class = "button">

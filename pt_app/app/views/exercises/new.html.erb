@@ -9,8 +9,14 @@
 	<%= f.text_field :title, placeholder: "Exercise" %><br>
 	<%= f.text_field :body_part, placeholder: "Body Part" %><br>
 	<%= f.text_area :description, placeholder: "Description" %> <br>
-	<%= f.text_field :image_url, placeholder: "Exercise Image" %>
+  <p>Add an image or video of exercise</p>
+  <p><%= f.hidden_field :image_url, placeholder: "Exercise Image", role: "uploadcare-uploader" %></p>
+
 	<%= f.submit "Submit" %>
 <% end %>
-
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
 </div>
