@@ -64,7 +64,7 @@ class PatientsController < ApplicationController
 	#update patient's profile
 	def update
 		@patient = Patient.find(params[:id])
-    @patient.update_attributes(patient_params)
+    	@patient.update_attributes(patient_params)
 
 
 		if @patient.update_attributes(patient_params)

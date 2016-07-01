@@ -2,9 +2,12 @@
 <br>
 <div class="container">
 <h1>Patient Directory</h1>
+
 <ul class='list-group'>
 <% @patients.each do |patient| %>
 	<br><li class="pull-left, list-group-item"><%= link_to patient.first_name + " " + patient.last_name, patient_path(patient) %></li>
+
 <%end%>
 </ul>
+</div>
 </div>

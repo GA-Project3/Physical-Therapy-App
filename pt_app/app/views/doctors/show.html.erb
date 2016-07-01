@@ -1,73 +1,74 @@
 <br><br><br>
-<div class="container-fluid">
-<div class="row">
-<div class="doc_title">
-  <h1><strong> Dr. <%= @doctor.first_name + " " + @doctor.last_name %> </strong></h1>
-</div>
-</div>
 
+<div class="container-fluid">
 
 <!-- Doctor information -->
-<div class="doctor-image">
-<div class='col-md-4 col-sm-10 col-lg-6'><img class = 'image' src="<%= @doctor.image_url %>" alt="image for doctor" width='150px'></div>
-</div>
-
-<div class='col-md-4 col-sm-10 col-lg-6'>
-<div class="doctor-info">
-  <div><b>Email:</b> <%= @doctor.email %></div>
-  <div><b>Phone:</b> <%= @doctor.phone %></div>
-  <div><b>Location:</b> <%= @doctor.location %></div>
-  <div><b>Bio:</b> <%= @doctor.description %></div>
-  <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
-
-</div>
-</div>
-
-<div class="clearfix"></div>
-<% if current_user != nil %>
-<% if current_user.user_t == 'doctors' %>
-  <div class= "edit_button">
-    <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
-
-    </form>
+<div class="row">
+  <div class="dr">
+  <div class="doctor-title">
+  <strong> <h1>Dr. <%= @doctor.first_name + " " + @doctor.last_name %></h1></strong>
   </div>
-<% end %>
-<% end %>
-<% flash.each do |key, value| %>
-  <div class="<%= flash_class(key) %>">
-    <%= value %>
-  </div>
-<% end %>
 
+    <div class="doctor-image">
+      <img class = 'image' src="<%= @doctor.image_url %>" alt="image for doctor" width='150px'></div>
+    </div>
+  
+    <div class="doctor-info">
+      <div><b>Email:</b> <%= @doctor.email %></div>
+      <div><b>Phone:</b> <%= @doctor.phone %></div>
+      <div><b>Location:</b> <%= @doctor.location %></div>
+      <div><b>Bio:</b> <%= @doctor.description %></div>
+      <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
+  <!-- edit profile button -->
+    <div class="clearfix"></div>
+      <% if current_user != nil %>
+      <% if current_user.user_t == 'doctors' %>
+         <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
+        </form>
+      <% end %>
+      <% end %>
+   <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
 
-
-
-
-  <div class="clearfix"></div>
-
-
-  <!--  show doco for this doctor -->
-  <% if current_user != nil %>
-    <% if current_user.user_t == 'doctors' %>
-      <div class= "edit_button">
+      <% if current_user != nil %>
+       <% if current_user.user_t == 'doctors' %>
+ <!--      <div class= "edit_button"> -->
           <%= button_to "Edit Profile", edit_doctor_path, :method => :get %>
+<!--       </div> -->
+    </div>
+</div>
+<!-- <div class="clearfix"></div> -->
+
+
+<!-- Patients Divs -->
+
+<div class="row">
+  <div class="span10">
+    <div class="doctor-patient">
+    <%unless @doctor.patients.empty? %>
+      <div class="patient-title">
+          <h1>Patients</h1>
       </div>
 
-      <%unless @doctor.patients.empty? %>
-        <h1>Patients</h1>
           <% @doctor.patients.each do |patient| %>
-          <div class='col-md-1'>
+  
+           <h4><a href="/patients/<%= patient.id %>"><%= patient.first_name%>  <%= patient.last_name %></a></h4>
+
+
               <img src="<%= patient.image_url %>" width="80px" alt="patient image"/>
-          </div>
-        <div class='col-md-4'>
-              <h4><a href="/patients/<%= patient.id %>"><%= patient.first_name%>  <%= patient.last_name %></a></h4>
-              <%= patient.diagnosis %>
+
+              Injury: <%= patient.diagnosis %>
               <% end %>
             <% end %>
-        </div>
-
-  <div class="clearfix"></div>
+      </div>
+</div>
+<!--         
+  <div class="clearfix"></div> -->
 </div>
     <% end %>
-<% end %>
+    <% end %>
+</div>
 </div>
