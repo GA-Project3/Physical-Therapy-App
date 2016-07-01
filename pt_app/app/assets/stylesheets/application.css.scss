@@ -84,25 +84,69 @@ li {
 }
 
 .exercise {
-
   width: 600px;
   margin: 0 auto;
   text-align: center;
 }
 
 
-
 .container-fluid {
   text-align: center;
 }
-.doc_title {
-  margin-left: 1em;
+
+.patient-list {
+  text-align: center;
+  width: 200px;
+  margin: 10% 50%;
+
+}
+
+
+.dr {
+  margin-left: 25px;
+}
+
+.doctor-title {
+  text-align: left;
+}
+
+.doctor-image, .doctor-info {
+  text-align: left;
+  float: left;
+}
+
+.doctor-info {
+  display: inline;
+  width: 300px;
+
 }
 
 .edit_button {
-  margin-left: 3em;
+  margin-left: 10em;
   margin-top: 1em;
 }
+
+.doctor-patient {
+  margin-left: 50px;
+  
+}
+
+.patient-title {
+  text-align: left; 
+}
+
+.patient-image {
+  text-align: left;
+  float: left;
+  
+}
+
+.patient-info {
+  text-align: left;
+  float: left;
+
+}
+
 
 .btn-success {
   width: 10em;
