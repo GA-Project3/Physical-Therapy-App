@@ -1,3 +1,4 @@
+<br><br>
 <!-- exercise index page -->
 
 <div class="container-fluid">
@@ -27,7 +28,7 @@
 			<h1><%= link_to exercise.title, exercise_path(exercise) %></h1>
 
 			<% if exercise.image_url.include? "youtu" %>
-						<%= embed(exercise.image_url) %> 
+						<%= embed(exercise.image_url) %>
 			<% else %>
 				<img src= "<%= exercise.image_url %>" width="400" height="300" /><br>
 			<% end %>
@@ -36,7 +37,7 @@
 </div>
 	<div class="row">
 		<div class="exercise">
-				<h4><strong>Body Part:</strong></h4><h5> <%= exercise.body_part %></h5> 
+				<h4><strong>Body Part:</strong></h4><h5> <%= exercise.body_part %></h5>
 				<h4><strong>How To:</strong></h4><h5> <%= exercise.description %></h5>
 		</div>
 	</div>
