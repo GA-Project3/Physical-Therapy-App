@@ -16,10 +16,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   min-height: 100vh;
   position: relative;
   width: 100%;
+  background: fixed;
+  background-image: image-url('background-9.jpg');
+  background-size: 100%;
 }
 
 nav {
