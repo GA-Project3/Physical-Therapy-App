@@ -19,7 +19,7 @@ We'll have three models: patients,  doctors and exercises. The patient and exerc
 
 ##Technologies Used
 * Upload-Care / PaperClip
-* Friendly-ID
+* Validation, Authorization, Authentication
 * JS/Jquery for front-end
 * AJAX
 
