@@ -18,12 +18,12 @@ Allow the user and the physician to communicate and interact online. Physician w
 There are two users: patient and doctor.
 
 #####Patient
-The patient will be able to log in/sign up,  view the doctors, choose a doctor, view the list of exercises prescribed by the doctor, and view the overall exercise index page
+The patient will be able to log in/sign up,  view the doctors, choose a doctor, view the list of exercises prescribed by the doctor, and view the overall exercise index page.
  
 #####Doctors
-The physician will be able to log in/sign up, to view the patient profile, assign/remove the exercises to the patient
+The physician will be able to log in/sign up, to view the patient profile, assign/remove the exercises to the patient.
 
-We'll have three models: patients,  doctors and exercises. The patient and exercises are connected by a joint table
+We'll have three models: patients,  doctors and exercises. The patient and exercises are connected by a join table.
 
 
 ##Planning
@@ -52,8 +52,10 @@ We'll have three models: patients,  doctors and exercises. The patient and exerc
 </details>
 
 ##Technologies Used
-* Upload-Care / PaperClip
-* Friendly-ID
+* Ruby on Rails
+* ActiveRecord
+* PostgreSQL
+* Uploadcare
 * JS/Jquery for front-end
 * AJAX
 
