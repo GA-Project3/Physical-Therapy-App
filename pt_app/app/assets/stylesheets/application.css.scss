@@ -96,6 +96,7 @@ li {
 
 .container-fluid {
   text-align: center;
+
 }
 
 .patient-list {
@@ -222,10 +223,31 @@ div.box {
   background-color: yellow;
 }
 
-.patient {
-  width: 600px;
-  margin: 0 auto;
+.patient-profile {
+  float: left;
+  text-align: left;
+  margin-left: 30px;
+  width: 300px;
+}
+
+.patient h3 {
   text-align: center;
+}
+
+.patient h4 {
+
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.patient-show {
+  width: 600px;
+  float: right;
+  display: block;
+  flex: 1;
+  margin-top: -400px;
+
 }
 
 
