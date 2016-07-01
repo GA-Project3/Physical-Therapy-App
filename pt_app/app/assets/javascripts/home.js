@@ -29,11 +29,11 @@ function switchAddRemove(target){
   if (target.innerHTML=="Remove") {
     target.innerHTML = "Add";
     $(target).removeClass("btn-warning");
-    $(target).addClass("btn-success");
+    $(target).addClass("btn-info");
   }
   else {
     target.innerHTML = "Remove";
-    $(target).removeClass("btn-success");
+    $(target).removeClass("btn-info");
     $(target).addClass("btn-warning");
   };
 }

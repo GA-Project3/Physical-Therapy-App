@@ -35,34 +35,32 @@
             <% end %>
         <%end%>
       <%end%>
-</div>
-</div>
-<div class="clearfix"></div>
-</div>
-  <br>
-</div>
-
-<div class="row">
-  <div class="patient-show">
-
 <div>
 <% if current_user != nil %>
   <% if current_user.user_t == 'patients' %>
     <div class = "button">
-      <%= link_to "Edit Profile", edit_patient_path %>
+      <%= button_to "Edit Profile", edit_patient_path, :method => :get %>
     </div>
     <%else%>
   <%end%>
   <%end%>
 </div>
 </div>
+</div>
+<div class="clearfix"></div>
+  <br>
+</div>
+
 
 
 <div class="row">
   <div class="patient-show">
 <%if @doctor %>
-
-  <h3>Your Current Physician</h3>
+  <% if current_user.user_t == 'patients' %>
+    <h3>Your Current Physician</h3>
+  <% else %>
+    <h3>Physician</h3>
+  <% end %>
 
     <img src="<%= @doctor.image_url %>" width="80px" alt="doctor image"/>
 
@@ -88,16 +86,18 @@
 <br>
 
 
-     <% if current_user != nil %>
-    <h3>List of Exercises</h3>
-    <% if current_user.user_t == 'doctors' %>
-      <div class = "button">
-        <%= link_to "Edit", patient_exercises_path %>
-      </div>
-    <%else%>
-    <%end%>
-  <%end%>
-  </div>
+<% if current_user != nil %>
+  <% if current_user.user_t == 'doctors' %>
+    <div>
+      <h3 style='display:inline'><%= @patient.first_name %>'s Exercises</h3>
+      <%= button_to "Edit", patient_exercises_path, :method => :get %>
+    </div>
+  <%else%>
+    <h3>Your Exercises</h3>
+<%end%>
+<%end%>
+
+</div>
 </div>
 
 <br>
@@ -116,8 +116,7 @@
 <br>
 <br>
 <br>
-<br>
-<br>
+
 
 <div class="row">
   <div class="patient-show">
