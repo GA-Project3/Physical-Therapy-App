@@ -16,10 +16,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   min-height: 100vh;
   position: relative;
   width: 100%;
+  background: fixed;
+  background-image: image-url('background-9.jpg');
+  background-size: 100%;
 }
 
 nav {
@@ -129,13 +133,17 @@ li {
 .edit_button {
   margin-top: 10px;
   margin-left: 240px;
-  position: fixed;
+
 }
 
 .doctor-patient {
   margin-left: 50px;
   margin-top: 20px;
   
+}
+
+.doctor-patient h4 {
+  text-align: left;
 }
 
 .patient-title {
@@ -162,6 +170,14 @@ li {
 
 }
 
+.span10 {
+  text-align: left !important;
+  margin: 0 auto;
+}
+
+.names {
+  text-align: left;
+}
 
 .btn-success {
   width: 10em;

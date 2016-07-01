@@ -1,11 +1,13 @@
 <br>
 <br>
-<div class="container-fluid">
+<div class="container">
 <h1>Patient Directory</h1>
 
-<div class="patient-list">
+<ul class='list-group'>
 <% @patients.each do |patient| %>
-	<li><%= link_to patient.first_name + " " + patient.last_name, patient_path(patient) %></li><br>
+	<br><li class="pull-left, list-group-item"><%= link_to patient.first_name + " " + patient.last_name, patient_path(patient) %></li>
+
 <%end%>
+</ul>
 </div>
 </div>

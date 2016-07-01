@@ -19,15 +19,12 @@
       <div><b>Location:</b> <%= @doctor.location %></div>
       <div><b>Bio:</b> <%= @doctor.description %></div>
       <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
-
   <!-- edit profile button -->
-<!--     <div class="clearfix"></div> -->
+    <div class="clearfix"></div>
       <% if current_user != nil %>
       <% if current_user.user_t == 'doctors' %>
-      <div class= "edit_button">
          <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
         </form>
-      </div>
       <% end %>
       <% end %>
    <% flash.each do |key, value| %>
@@ -35,44 +32,39 @@
         <%= value %>
       </div>
     <% end %>
+
+      <% if current_user != nil %>
+       <% if current_user.user_t == 'doctors' %>
+ <!--      <div class= "edit_button"> -->
+          <%= button_to "Edit Profile", edit_doctor_path, :method => :get %>
+<!--       </div> -->
     </div>
 </div>
 <!-- <div class="clearfix"></div> -->
 
 
-<div class="row">
-  <!--  show doco for this doctor -->
-  <% if current_user != nil %>
-    <% if current_user.user_t == 'doctors' %>
-      <div class= "edit_button">
-          <%= button_to "Edit Profile", edit_doctor_path, :method => :get %>
-      </div>
-
-
-
 <!-- Patients Divs -->
 
 <div class="row">
-  <div class="doctor-patient">
+  <div class="span10">
+    <div class="doctor-patient">
     <%unless @doctor.patients.empty? %>
       <div class="patient-title">
           <h1>Patients</h1>
       </div>
 
           <% @doctor.patients.each do |patient| %>
-      
-      <div class="patient-image">
+  
+           <h4><a href="/patients/<%= patient.id %>"><%= patient.first_name%>  <%= patient.last_name %></a></h4>
+
 
               <img src="<%= patient.image_url %>" width="80px" alt="patient image"/>
 
-      </div>
-
-        <div class="patient-info">
-              <h4><a href="/patients/<%= patient.id %>"><%= patient.first_name%>  <%= patient.last_name %></a></h4>
-              <%= patient.diagnosis %>
+              Injury: <%= patient.diagnosis %>
               <% end %>
             <% end %>
-        </div>
+      </div>
+</div>
 <!--         
   <div class="clearfix"></div> -->
 </div>
