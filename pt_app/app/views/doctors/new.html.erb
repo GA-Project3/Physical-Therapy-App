@@ -31,11 +31,15 @@
   </div>
 
   <%= f.label :image_url, "Profile Photo:" %>
-   <%= uploadcare_uploader_field :doctor, :image_url %>
+  <%= uploadcare_uploader_field :doctor, :image_url %>
 
   <br>
   <%= f.submit "Sign up" %>
-
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
   <br>
 
   <% end %>

@@ -1,13 +1,24 @@
 <br>
 <br>
 <div class="container-fluid">
-<h1>Physician Directory</h1>
 
-<% @doctors.each do |doctor| %>
-  <a href="/doctors/<%= doctor.id %>">
-    <%= doctor.first_name %> </br>
-  </a>
+<h1>Physician Directory</h1>
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
 <% end %>
+<% @doctors.each do |doctor| %>
+  <div class="row doctor-row">
+  <div class='col-sm-4'><img class = 'image' src="<%= doctor.image_url %>" alt="image for doctor" width='150px'></div>
+  <br><br>
+    <div class='col-sm-8'>
+    	<div><h2><%= link_to doctor.first_name + " " + doctor.last_name, doctor_path(doctor) %></h2></div>
+    	<div><b>Email:</b> <%=doctor.email %></div>
+      <div class="clearfix"></div>
+    </div>
+    </div>
+  <% end %>
 </div>
 
 

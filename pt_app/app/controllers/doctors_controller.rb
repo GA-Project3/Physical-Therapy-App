@@ -18,8 +18,6 @@ class DoctorsController < ApplicationController
 	#individual doctor show page/doctor profile page
 	def show
 		@doctor = Doctor.find(params[:id])
-    @patients = @doctor.patients
-    @patient = Patient.find(params[:id])
 		render :show
 	end
 
@@ -29,8 +27,10 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
       login(@doctor, 'doctors')
+      flash[:success] = "Profile created!"
       redirect_to "/doctors/#{@doctor.id}"
     else
+      flash[:error] = @doctor.errors.full_messages.join("---")
       redirect_to '/doctors/new'
     end
   end
@@ -59,7 +59,7 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :phone, :location, :email, :password, :description)
+    params.require(:doctor).permit(:first_name, :last_name, :phone, :location, :image_url, :email, :password, :description)
   end
 end
 

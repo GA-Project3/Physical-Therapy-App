@@ -36,11 +36,11 @@ Rails.application.routes.draw do
 
 	put '/patients/:id/edit', to: 'patients#update'
 
-	get '/exercises/:id/edit', to: 'exercises#edit'
+	# get '/exercises/:id/edit', to: 'exercises#edit'
 
-	patch '/exercises/:id/edit', to: 'exercises#update'
+	# patch '/exercises/:id/edit', to: 'exercises#update'
 
-	put '/exercises/:id/edit', to: 'exercises#update'
+	# put '/exercises/:id/edit', to: 'exercises#update'
 
 
 
@@ -52,12 +52,14 @@ Rails.application.routes.draw do
 	get '/patients/:id/exercises', to: 'patients#patient_exercises', as: 'patient_exercises'
 
 	##patient selects physician during sign up##
-	get '/patients/:id/physician_list', to: 'patients#physician_list'
+	get '/patients/:id/physician_list', to: 'patients#physician_list', as: 'physician_list'
 
 	#associate patient-id with doctor-id'
 	post '/patients/:id/physician_list', to: 'patients#select_physician', as: "select_physician_patient"
 
 	##resources/rails created routes##
-	resources :patients, :doctors, :exercises
+	resources :patients, :doctors 
+	# resources :exercises, only: [:index, :update, :create, :new, :edit]
+	resources :exercises
 
 end

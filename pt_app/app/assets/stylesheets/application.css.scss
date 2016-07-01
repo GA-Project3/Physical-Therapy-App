@@ -16,25 +16,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   min-height: 100vh;
   position: relative;
   width: 100%;
+  background: fixed;
+  background-image: image-url('background-9.jpg');
+  background-size: 100%;
 }
 
 nav {
-    position: relative;
+    position: fixed;
     z-index: 1;
     background: white;
     width: 100vw;
-    height: 3.7em;
-    top: 0;
+    height: 0em;
+    top: 10;
     // margin-bottom: 90px;
 }
 
+// .sub-nav {
+//   margin-top: 100px;
+// }
+
 
 #myCarousel {
-  height:100vh;
+  height:95vh;
   width:100vw;
   // overflow-y: hidden;
   div.carousel-inner {
@@ -60,15 +68,15 @@ div.button-wrapper {
   }
 
 img.first-slide {
-  height:100% !important;
+  height:88% !important;
   width: 100%;
 }
 .second-slide {
-  height:100% !important;
+  height:88% !important;
   width:100%;
 }
 .third-slide {
-  height:100% !important;
+  height:88% !important;
   width:100%;
 }
 
@@ -80,19 +88,205 @@ li {
 }
 
 .exercise {
-  background-color: white;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 
 .container-fluid {
   text-align: center;
 
-.doc_title {
-  margin-left: 1em;
+}
+
+.patient-list {
+  text-align: center;
+  width: 200px;
+  margin: 10% 50%;
+
+}
+
+
+.dr {
+  margin-left: 25px;
+}
+
+.doctor-title {
+  text-align: left;
+}
+
+.doctor-image, .doctor-info {
+  text-align: left;
+  float: left;
+    padding-right: 10px;
+}
+
+.doctor-image img {
+  width: 200px;
+}
+
+.doctor-info {
+  display: inline;
+  width: 300px;
+
 }
 
 .edit_button {
-  margin-left: 3em;
-  margin-top: 1em;
+  margin-top: 10px;
+  margin-left: 240px;
+
 }
+
+.doctor-patient {
+  margin-left: 50px;
+  margin-top: 20px;
+  
 }
+
+.doctor-patient h4 {
+  text-align: left;
+}
+
+.patient-title {
+  text-align: left; 
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+.patient-image {
+  text-align: left;
+  float: left;
+  padding-right: 10px;
+}
+
+.patient-image img {
+  width: 200px;
+  height: 200px;
+}
+
+.patient-info {
+  text-align: left;
+  float: left;
+
+}
+
+.span10 {
+  text-align: left !important;
+  margin: 0 auto;
+}
+
+.names {
+  text-align: left;
+}
+
+.btn-success {
+  width: 10em;
+  margin-right: 10px;
+  font-size: 30px;
+  height: 2em;
+}
+.num2 {
+  width: 10em;
+  height: 2em;
+  font-size: 30px;
+  text-align: center;
+}
+.home-font {
+  color: black;
+}
+div.box {
+  border: solid 1px #CCCCCC;
+  background-color: #f9f9f9;
+  opacity: .9px !important;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 4px 4px 0px 4px;
+  max-width:630px;
+}
+.container2 {
+  width:100%;
+  height:200px;
+  opacity: .5;
+  margin-left: 8em;
+}
+
+
+
+.head {
+  color: red;
+  font-size: 3em;
+}
+
+.doctor {
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.patient-profile {
+  float: left;
+  text-align: left;
+  margin-left: 30px;
+  width: 300px;
+}
+
+.patient h3 {
+  text-align: center;
+}
+
+.patient h4 {
+
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.patient-show {
+  width: 600px;
+  float: right;
+  display: block;
+  flex: 1;
+  margin-top: -400px;
+
+}
+
+
+.about img {
+  height: 200px;
+  width: 200px;
+  position: relative;
+}
+
+
+.span5 {
+  vertical-align: middle;
+  display: table-cell;
+
+}
+
+.span5 h2, h4 {
+  text-align: center;
+}
+
+.span5 img {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+
+
+}
+
+.span5 p {
+  position: relative;
+  display: inline-block;
+  padding: 12px;
+
+}
+
+div .row.doctor-row{
+  height: 200px;
+  width: 800px;
+}
+
