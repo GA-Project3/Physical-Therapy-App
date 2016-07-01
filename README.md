@@ -63,6 +63,12 @@ We'll have three models: patients,  doctors and exercises. The patient and exerc
 
 It's a web application.  Click and go!  [DigitcarePT](https://physician-patient-app.herokuapp.com/)
 
+#####To test drive, login to existing accounts
+**Doctor**  user: `jorge@doctors.com`  pwd:  `password`
+
+**Patient**  user: `ddavis@msn.com`  pwd:  `password`
+
+
 ##Wish List
 
 Given more time, our team would develop the ability to:
