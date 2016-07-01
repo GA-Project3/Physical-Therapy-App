@@ -113,6 +113,11 @@ li {
 .doctor-image, .doctor-info {
   text-align: left;
   float: left;
+    padding-right: 10px;
+}
+
+.doctor-image img {
+  width: 200px;
 }
 
 .doctor-info {
@@ -122,23 +127,33 @@ li {
 }
 
 .edit_button {
-  margin-left: 10em;
-  margin-top: 1em;
+  margin-top: 10px;
+  margin-left: 240px;
+  position: fixed;
 }
 
 .doctor-patient {
   margin-left: 50px;
+  margin-top: 20px;
   
 }
 
 .patient-title {
   text-align: left; 
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 20px;
 }
 
 .patient-image {
   text-align: left;
   float: left;
-  
+  padding-right: 10px;
+}
+
+.patient-image img {
+  width: 200px;
+  height: 200px;
 }
 
 .patient-info {

@@ -6,7 +6,7 @@
 <div class="row">
   <div class="dr">
   <div class="doctor-title">
-   <h1>Dr. <%= @doctor.first_name + " " + @doctor.last_name %></h1>
+  <strong> <h1>Dr. <%= @doctor.first_name + " " + @doctor.last_name %></h1></strong>
   </div>
 
     <div class="doctor-image">
@@ -36,13 +36,8 @@
       </div>
     <% end %>
     </div>
-  </div>
 </div>
-
-
-
-
-<div class="clearfix"></div>
+<!-- <div class="clearfix"></div> -->
 
 
 <div class="row">
@@ -52,6 +47,7 @@
       <div class= "edit_button">
           <%= button_to "Edit Profile", edit_doctor_path, :method => :get %>
       </div>
+
 
 
 <!-- Patients Divs -->
