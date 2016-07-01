@@ -18,19 +18,25 @@
   <div><b>Location:</b> <%= @doctor.location %></div>
   <div><b>Bio:</b> <%= @doctor.description %></div>
   <div><b>Member Since:</b> <%= @doctor.created_at.strftime("%b %d, %Y") %></div>
+
 </div>
 </div>
 
 <div class="clearfix"></div>
-     <% if current_user != nil %>
-      <% if current_user.user_t == 'doctors' %>
-        <div class= "edit_button">
-          <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
+<% if current_user != nil %>
+<% if current_user.user_t == 'doctors' %>
+  <div class= "edit_button">
+    <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
 
-          </form>
-        </div>
-      <% end %>
-    <% end %>
+    </form>
+  </div>
+<% end %>
+<% end %>
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
 
 
 
@@ -43,9 +49,7 @@
   <% if current_user != nil %>
     <% if current_user.user_t == 'doctors' %>
       <div class= "edit_button">
-        <form action='/doctors/<%= @doctor.id %>/edit' method='get' >
-          <button> Edit Profile </button>
-        </form>
+          <%= button_to "Edit Profile", edit_doctor_path, :method => :get %>
       </div>
 
       <%unless @doctor.patients.empty? %>

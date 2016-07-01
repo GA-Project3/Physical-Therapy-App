@@ -7,6 +7,9 @@ class Doctor < ActiveRecord::Base
 
 	has_many :patients
 
+	def confirm_email
+	end
+
 	def self.confirm(params)
 		@doctor = Doctor.find_by({email: params[:email]})
 		@doctor.try(:authenticate, params[:password])

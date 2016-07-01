@@ -14,10 +14,10 @@
 		<% if current_user != nil %>
 		<% if current_user.user_t == 'doctors' %>
 		<div class = "button">
-			<%= link_to "Add New Exercise", new_exercise_path %>
+			<%= button_to "Add New Exercise", new_exercise_path, :method => :get %>
 		</div>
 		<% end %>
-		<%end%>
+		<% end %>
 	</div>
 
 <div class="row">
@@ -70,8 +70,10 @@
 <% if current_user.user_t == 'doctors' %>
 
 	<div class = "button">
-		<%= button_to "Add New Exercise", new_exercise_path %>
+		<%= button_to "Add New Exercise", new_exercise_path, :method => :get %>
 	</div>
+
+
 <%end%>
 <% end %>
 			</div>

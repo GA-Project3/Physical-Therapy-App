@@ -2,7 +2,11 @@
 <br>
 <div class="container-fluid">
 <h1>Physician Directory</h1>
-
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
 <% @doctors.each do |doctor| %>
 <div class='col-md-2'><img class = 'image' src="<%= doctor.image_url %>" alt="image for doctor" width='150px'></div>
 	<div class='col-md-4'>

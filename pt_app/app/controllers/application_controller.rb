@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if !current_user
+      flash[:error] = "Please login or create an account!"
       redirect_to '/'
     end
   end
@@ -16,6 +17,7 @@ class ApplicationController < ActionController::Base
   def is_doctor
     if current_user.user_t == 'doctors'
     else
+      flash[:error] = "Only a doctor may view this!"
       redirect_to '/'
     end
   end
@@ -23,6 +25,7 @@ class ApplicationController < ActionController::Base
   def is_patient
     if current_user.user_t == 'patients'
     else
+      flash[:error] = "Only a patient may view this!"
       redirect_to '/'
     end
   end
@@ -30,6 +33,7 @@ class ApplicationController < ActionController::Base
   def patient_profile?
     if current_user.user_t == 'patients'
       if current_user.id.to_s != params[:id]
+        flash[:error] = "You are not authorized to view this!"
         redirect_to "/patients/#{current_user.id}"
       end
     end
@@ -37,6 +41,7 @@ class ApplicationController < ActionController::Base
 
   def doctor_profile?
     if current_user.id.to_s != params[:id]
+      flash[:error] = "Only a doctor may view this!"
       redirect_to "/doctors/#{current_user.id}"
     end
   end

@@ -2,7 +2,7 @@ module ExercisesHelper
 
 	def embed(image_url)
 			youtube_id = image_url.split("=").last
-			content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{youtube_id}")
+			content_tag(:iframe, nil, src: "http://www.youtube.com/embed/#{youtube_id}")
 	end
 end
 
