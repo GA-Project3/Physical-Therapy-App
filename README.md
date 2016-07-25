@@ -1,5 +1,5 @@
 #Project 3 - Physical Therapy App
-[Heroku Link] https://physician-patient-app.herokuapp.coma-App
+[Heroku Link] http://physician-patient-app.herokuapp.coma-App
 
 ##Scope
 
